@@ -18,3 +18,4 @@ To change a decision, add a new line that says what it replaces.
 | 12 | 2026-11-19 | Personal data may be stored in a secure cloud database, accessible only to Shaked | Needed to sync phone, computer and iPad | Shaked |
 | 13 | 2026-11-19 | Phase 0 gate: brief (docs/00-brief.md) approved; Phase 1 Discovery starts | Brief complete, reviewed, open questions moved to Discovery | Shaked |
 | 14 | 2026-11-19 | Smoking: quit date (not step-down), set after Shaked finishes the current army reserve tour; exact date TBD | Research shows both work equally well; Shaked prefers a quit date and timing it after reserve duty | Shaked |
+| 15 | 2026-11-19 | All six gaps in docs/research/similar-apps.md are kept as Sol's product principles: voice to structured updates with read-back, one note updates several areas, no-reset progress, money linked to savings goals, audio never lost, calm adult tone | They are what no existing app does and what Shaked needs | Shaked |
