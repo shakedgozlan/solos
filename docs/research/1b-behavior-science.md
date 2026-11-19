@@ -4,7 +4,7 @@
 Date: 2026-11-19 · Role: Researcher (Opus 5.5 high lead, 4 Sonnet reading workers) · Status: for 1c synthesis
 Sources and how well each was checked: [1b-sources.md](1b-sources.md)
 
-**How sure we are.** "Strong" = meta-analysis or Cochrane review. "Moderate" = several trials or one good field study. "Weak" = small, lab-only or observational. Workers could read only some sources in full (marked in 1b-sources.md). Anything not read is from known literature and is marked **Assumption** until re-checked.
+**How sure we are.** "Strong" = meta-analysis or Cochrane review. "Moderate" = several trials or one good field study. "Weak" = small, lab-only or observational. Workers could read only some sources in full (marked in 1b-sources.md). Most rows rest on well-known literature that was located but not re-read this session (status per source in 1b-sources.md); rows with no source found are marked **Assumption**.
 
 ## 1. What the evidence says, in short
 
