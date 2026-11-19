@@ -68,6 +68,12 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 2. **Overlap with Instinct AI.** Resolved: dashboard first, Sol's own assistant replaces Instinct in v2 (decisions.md #9). Remaining risk: if Sol only reads the calendar, the morning brief sees events but likely not Instinct's tasks (Assumption: depends on what Instinct can share).
 3. **"Talk and it does everything"** is the heart of the product, not a feature. Discovery must test how voice input can update goals and progress reliably. Waiting for Shaked's view.
 
+## Later (not in the MVP, kept for future phases)
+- v2: Sol's own AI assistant replaces Instinct AI (voice; WhatsApp, Telegram or in-app). Includes tasks, reminders, daily plan and summary, calendar.
+- Areas parked after the MVP: Mind and emotions (decisions, independence, mindfulness), Relationships.
+- Connections: Notion; Garmin if not in the MVP; Instinct AI export (Markdown) during the move to v2.
+- Achievements: long-term set alongside the short-term one, if the MVP starts with only one.
+
 ## Open questions
 - [x] Top 3 areas: Health and body, Learning and skills, Money (decisions.md #10)
 - [ ] Can Instinct AI share data? Shaked guesses it can export Markdown (.md) files (Assumption, to check in Discovery)
