@@ -22,6 +22,23 @@ Grouped by Claude. Shaked has not yet ranked them.
 | Mind and emotions | Emotional and intellectual growth, better decisions, mindfulness, independence from outside approval |
 | Relationships | Find a partner |
 
+## MVP goals per area (Shaked, 2026-11-19)
+Exact numbers (weight, money) are kept out of the repo and entered in Sol itself.
+- **Health and body:** reach a target weight; quit smoking fully; eat out less and eat healthier; start with mindfulness.
+- **Learning and skills:** learn new skills; read books.
+- **Money:** spend less (especially eating out, which links to health); save more; a budget that Shaked actually follows, as precise as possible; savings goals for specific things (for example a flight in a year); maybe investments later.
+
+## Success
+- Sol is the one place Shaked needs for self-improvement: it holds all the content, and can take content in, add to it and export it (including improvements suggested by Claude).
+- The real test: if Shaked skips Sol for a week, life feels messier and something is missing.
+- Sol never makes Shaked feel bad for missing a day.
+
+## Sol's voice and behavior
+- Tone: supportive, no guilt and no nagging.
+- Sends phone notifications (yes, Shaked wants them).
+- Voice input in Hebrew and English mixed in one sentence. Hebrew is a must. Voice is the most important thing to get right (Shaked, 2026-11-19).
+- Technical risk: speech recognition handles mixed Hebrew and English worse than English alone. Test engines early in Discovery.
+
 ## How Shaked works today
 - **AI voice assistant app** ("Instinct AI", confirmed by Shaked). Shaked's favorite tool. Shaked records a voice note and it does the rest: reminders, daily plan, daily summary, and it manages the iCloud calendar. "Useful 200 million times over" because nothing has to be written.
 - **iCloud / Apple Calendar**: Shaked rarely uses a calendar directly; the AI app manages it through iCloud.
@@ -66,7 +83,7 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 ## Claude's critique
 1. **The scope is very wide** (six groups, about 20 goals). Resolved: the MVP covers 3 areas (decisions.md #10).
 2. **Overlap with Instinct AI.** Resolved: dashboard first, Sol's own assistant replaces Instinct in v2 (decisions.md #9). Remaining risk: if Sol only reads the calendar, the morning brief sees events but likely not Instinct's tasks (Assumption: depends on what Instinct can share).
-3. **"Talk and it does everything"** is the heart of the product, not a feature. Discovery must test how voice input can update goals and progress reliably. Waiting for Shaked's view.
+3. **"Talk and it does everything"** is the heart of the product, not a feature. Shaked agrees. Discovery must test how voice input in mixed Hebrew and English can update goals and progress reliably.
 
 ## Later (not in the MVP, kept for future phases)
 - v2: Sol's own AI assistant replaces Instinct AI (voice; WhatsApp, Telegram or in-app). Includes tasks, reminders, daily plan and summary, calendar.
@@ -79,6 +96,8 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 - [ ] Can Instinct AI share data? Shaked guesses it can export Markdown (.md) files (Assumption, to check in Discovery)
 - [x] Instinct AI: decided (decisions.md #9). Dashboard first; Sol's own assistant (WhatsApp, Telegram or in-app voice) replaces Instinct in v2.
 - [ ] v2 assistant: channel and Claude API running cost (check in Discovery)
+- [ ] Monthly running-cost limit (hosting, speech, AI)
+- [ ] Smoking: quit date or step-down plan
 - [x] Data sources: Garmin may connect. Money never connects to any account or bank; Sol gets money info only from what Shaked says (decisions.md #11)
 - [x] Privacy: a secure cloud database is fine (decisions.md #12)
 - [ ] Daily use: Shaked says it depends on the day and on what Sol offers. To be learned in the real-use test (step 3c)
