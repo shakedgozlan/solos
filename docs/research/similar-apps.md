@@ -40,6 +40,22 @@ The search tool mostly returned titles and links, not page text. Five key source
 5. **Audio is never lost:** save first, transcribe after, retry quietly.
 6. **Calm, adult tone:** no badges, no ads, no "behind" banners.
 
+## What this changes in Sol (all six gaps kept, Shaked 2026-11-19)
+Three gaps are one engine to build; three are rules every screen follows.
+
+**The engine (most of the build effort)**
+- **Voice pipeline (gaps 1, 5):** record, save on the device first, transcribe in the background, retry quietly, then turn the text into structured entries with the Claude API. Works offline. Every entry keeps its source note, so a mistake is easy to trace and fix.
+- **Read-back card (gap 1):** after each note, Sol shows what it understood ("Ate out, 80 shekels: Money · Eating out. No cigarettes: Smoking") and Shaked confirms or fixes it in one tap. This is the one place typing may happen.
+- **One shared stream of entries (gap 2):** areas are views on the same entries, not separate pages with separate data. One note can update several areas. This also fixes the earlier version's "every change on a specific page" problem (brief, Earlier attempt).
+- **Home screen:** the mic is the main button. The "+" or manual entry is secondary.
+
+**The rules**
+- **No-reset progress (gap 3):** no streak counters anywhere. Progress is totals and rolling 7-day counts. Smoking shows cigarettes not smoked and shekels saved; a slip is an entry plus an optional "what happened?" note, never a reset. Reading shows total minutes. Words like "missed", "behind" and "failed" are not used in copy or notifications.
+- **Money that means something (gap 4):** savings goals can be fed by other areas: cigarette money and skipped deliveries move into a named goal, shown in real terms ("3 more days of the flight"). Sol needs baselines from Shaked: cigarettes per day, pack price, typical eating-out spend.
+- **Calm, adult tone (gap 6):** no badges, levels or pets. "Achievements" (brief) become milestones in real terms ("a month without smoking", "₪500 toward the flight").
+
+**Effect on the plan:** the speech-engine test becomes the first technical task, and the data model (one stream of entries) is decided before screens are designed. The feature list itself is set in Definition (step 2a).
+
 ## Open questions for Shaked
 - Which speech engines to test first (recommend Scribe V2 and Gemini, with Soniox as a third).
 - Smoking: quit date or step-down plan (already open in the brief); the research leans toward whatever keeps daily engagement easiest.
