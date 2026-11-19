@@ -2,16 +2,17 @@
 Updated: 2026-11-19 · by: Project lead (Opus 5.5)
 
 Phase: 0 Brief
-Gate: not started
+Gate: in review (00-brief.md draft v1)
 
 Done since last update:
-- docs/ structure set up (status, brief template, decisions, agent playbook, ideas)
+- docs/ structure set up (PR #1)
+- 0a intake done; 0b brief drafted and reviewed (docs/00-brief.md)
 
 Next step (one task, one owner):
-- 0a Intake: Shaked answers the brief questions. 0b: Project lead drafts docs/00-brief.md.
+- Shaked approves the brief and answers its open questions; then 1a self-research
 
 Blocked on / waiting for Shaked:
-- Answers to the Day 1 brief questions
+- Brief approval, top 3 areas, earlier-version screenshots
 
 Open questions:
 - See docs/00-brief.md, "Open questions"
