@@ -12,7 +12,7 @@ Next step (one task, one owner):
 - Shaked approves the brief and answers its open questions; then 1a self-research
 
 Blocked on / waiting for Shaked:
-- Brief approval, top 3 areas, earlier-version screenshots
+- Brief approval (then merge PR #1); earlier-version screenshots
 
 Open questions:
 - See docs/00-brief.md, "Open questions"

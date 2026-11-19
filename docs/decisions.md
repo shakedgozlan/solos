@@ -13,3 +13,4 @@ To change a decision, add a new line that says what it replaces.
 | 7 | 2026-11-19 | No teal/turquoise and no gold in any page or design | Shaked's visual preference | Shaked |
 | 8 | 2026-11-19 | Product name is Sol; it runs on phone, computer and iPad | Shaked's choice | Shaked |
 | 9 | 2026-11-19 | Dashboard first: the MVP is the Sol dashboard with voice notes for goals and progress. Instinct AI keeps tasks and calendar. Sol's own AI assistant (replacing Instinct) comes in v2 | Keeps the two-week MVP; Instinct keeps working meanwhile; the assistant later writes into the same goals and data | Shaked |
+| 10 | 2026-11-19 | MVP focus areas: Health and body, Learning and skills, Money. Goals and achievements is the system across all of them. Mind and emotions and Relationships wait (mindfulness may sit inside Health as a small habit) | All three hurt daily, show progress within two weeks, and lift the other areas | Shaked |

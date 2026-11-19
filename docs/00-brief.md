@@ -73,7 +73,7 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 3. **"Talk and it does everything"** is the heart of the product, not a feature. It shapes Discovery: we need to test how voice input can update goals and progress reliably.
 
 ## Open questions
-- [ ] Top 3 areas for the MVP (from the table above)
+- [x] Top 3 areas: Health and body, Learning and skills, Money (decisions.md #10)
 - [ ] Can Instinct AI share data (calendar only, or more)?
 - [ ] Earlier version: screenshots, and why it was dropped
 - [x] Instinct AI: decided (decisions.md #9). Dashboard first; Sol's own assistant (WhatsApp, Telegram or in-app voice) replaces Instinct in v2.
