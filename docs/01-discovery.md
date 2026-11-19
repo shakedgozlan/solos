@@ -2,7 +2,7 @@
 > Summary: Shaked wants to improve health, learning and money at once, but most apps built for this ask for typing, punish missed days, or handle English only. Their favorite tool (Instinct AI) proves the real need: talk once and the rest happens. **Strongest insight:** no app turns one mixed Hebrew/English voice note into structured progress across several areas, and that is exactly what Sol should do. **Recommendation:** move to Definition with a voice-first MVP built on one shared stream of entries, ElevenLabs Scribe for speech, and progress that never resets.
 
 Status: draft for the Discovery gate · Writer: Opus 5.5 (medium) · Date: 2026-11-19
-Builds on: [00-brief.md](00-brief.md) · decisions #1 to #17 in [decisions.md](decisions.md)
+Builds on: [00-brief.md](00-brief.md), [decisions.md](decisions.md)
 
 ## Problem space
 **In one sentence:** Shaked has no single place that shows priorities and progress across health, learning and money, and every way of keeping one current costs typing, which is exactly why they stop.
@@ -20,13 +20,13 @@ Sol has one user (decision #1), so the primary audience is already chosen: Shake
 
 | Area | Need | Current tool | Pain (1-5) |
 |---|---|---|---|
-| Health: smoking | Quit (quit date after reserve duty, #14), see progress that a slip cannot wipe | None | 4 (Assumption) |
-| Health: weight and food | Reach target weight, eat out less, cook more | Garmin (activity only) | 4 (Assumption) |
-| Learning and reading | Read books, learn new skills | None | 3 (Assumption) |
-| Money | Spend less, a budget that holds, named savings goals, no bank links (#11) | None | 4 (Assumption) |
+| Health: smoking | Quit (quit date after reserve duty, #14), see progress that a slip cannot wipe | None | 4 |
+| Health: weight and food | Reach target weight, eat out less, cook more | Garmin (activity only) | 4 |
+| Learning and reading | Read books, learn new skills | None | 3 |
+| Money | Spend less, a budget that holds, named savings goals, no bank links (#11) | None | 4 |
 | Daily plan and tasks | Morning brief, priorities | Instinct AI (by voice) | 2: works, but calendar link is unreliable |
 
-Pain scores are Claude's reading of the brief, not Shaked's ratings.
+Pain scores: Claude's estimate, accepted by Shaked.
 
 ## Research done
 | Method | Who / how many | Date | Raw notes |
@@ -36,14 +36,14 @@ Pain scores are Claude's reading of the brief, not Shaked's ratings.
 | Behavior science review | Meta-analyses, trials, field studies; 25 findings | 2026-11-19 | [1b-behavior-science.md](research/1b-behavior-science.md), [sources](research/1b-sources.md) |
 | Similar apps review | 34 apps in 6 categories, Mobbin UI references | 2026-11-19 | [similar-apps.md](research/similar-apps.md), [notes](research/similar-apps-notes.md) |
 
-Evidence limits: the apps review read 5 sources in full; 1b re-read only some. Treat both as direction, to confirm in the real-use test (3c).
+Evidence limits: both reviews read only some sources in full; treat them as direction, to confirm in 3c.
 
 ## Competitors and alternatives
 Full table in [similar-apps.md](research/similar-apps.md).
 
 | Product | What it does well | What it misses | Takeaway for Sol |
 |---|---|---|---|
-| Instinct AI (Shaked's tool) | Voice note in, reminders and plan out, no typing | No goals or progress; unreliable iCloud link; no export found | Proves the voice habit. Sol likely reads iCloud Calendar itself (Assumption) and replaces Instinct in v2 (#9) |
+| Instinct AI (Shaked's tool) | Voice note in, reminders and plan out, no typing | No goals or progress; iCloud link does not work properly; data cannot be exported (Shaked) | Proves the voice habit. Its data cannot be exported, so Sol reads iCloud Calendar itself (Assumption: feasible) and replaces Instinct in v2 (#9) |
 | Life dashboards (Exist, Bearable, Daylio, Notion) | All areas in one place; cross-area insights | Manual entry is too much effort (17% of Exist users) | "One place" only works if voice replaces the tapping |
 | Habit trackers (Streaks, Habitica, Finch) | One-tap check-in, widgets | Streak resets shame; gamification tires *(Assumption)* | Rolling "4 of 7 days" and totals, no streaks |
 | Voice journals (Rosebud, Day One, Voicenotes) | Talking beats a blank page | Output is reflection, not data; one lost recording reported | Turn voice into entries; save audio first, transcribe after |
@@ -61,19 +61,19 @@ Full table in [similar-apps.md](research/similar-apps.md).
 7. **Money gets real when it is labeled.** Labeled savings goals increase saving; people avoid bad financial news (1b, Moderate). *So what:* one or two named goals fed by other areas ("cigarette money: 3 more days of the flight") and a calm weekly line instead of alerts.
 
 ## Assumptions still untested
-- Assumption: correcting a voice entry on the read-back card costs less than typing it (test in 3c).
-- Assumption: Instinct AI is instinct.com, and it writes to iCloud Calendar in a form Sol can read (Apple's standard calendar access with an app-specific password). Confirm in architecture.
-- Assumption: ElevenLabs' second-language setting keeps more English in English letters (test in Phase 4 with the API).
-- Assumption: Garmin and Apple Health can feed Sol from a web app. Not researched yet; check in architecture (Phase 2).
-- Assumption: one web app that installs like an app (a PWA) covers phone, computer and iPad, with phone notifications on iOS.
-- Assumption: Shaked's pain scores per area (table above).
-- Open for 3c: weekly or monthly budget, how many notifications, whether a "rest day" is needed, whether a savings pledge is wanted.
+- Assumption: fixing a voice entry on the read-back card is quicker than typing it from scratch (test in 3c).
+- Assumption: Sol can read iCloud Calendar directly (Apple's standard calendar access with an app-specific password). Confirm in architecture.
+- Assumption: ElevenLabs' second-language setting keeps more English in English letters. Not tested yet: the test ran on the website, and the API needs the real key (Phase 4).
+- Assumption: Sol can get Garmin and Apple Health data (Shaked wants both, 2026-11-19). Apple Health can only be read by an app installed from Apple's tools, not by a website (Assumption, check in architecture).
+- Open for 3c (the real-use test, where Shaked uses a working prototype on the phone for a few days): weekly or monthly budget, how many notifications, whether a "rest day" is needed, whether a savings pledge is wanted.
 
-## Open questions for Shaked
-- **Reading target:** minutes per day, sessions per week, or no number at all (similar-apps). Evidence does not favor any of them (1b, Weak).
-- **Smoking support:** is a doctor or nicotine replacement part of the plan? It roughly doubles success (1b, Moderate to strong). Sol can track it but does not advise. The quit-date method is settled (#14); the exact date comes after reserve duty.
-- **Baselines, needed in Definition:** cigarettes per day, pack price, typical eating-out spend (similar-apps). Shaked enters them in Sol, not the repo.
-- **Deferred to architecture:** whether the morning brief can see Instinct's tasks or only calendar events (brief); v2 assistant channel and Claude API cost (brief).
+## Answered by Shaked (2026-11-19)
+- **Reading target:** one chapter a day; more is a bonus, never required (#18).
+- **Smoking support:** Shaked has quit-smoking pills and plans to take them, not started yet. Sol tracks the pills as part of the plan and does not advise on them. Quit-date method settled (#14); the date comes after reserve duty.
+- **Baselines:** rough numbers given (cigarettes per day at home and in reserve duty, tobacco pouch price, eating-out spend). Kept outside the repo, like all personal numbers; Shaked confirms them in Sol at setup.
+- **Instinct AI:** confirmed as instinct.com. Its data cannot be pulled out, and its iCloud connection does not work properly. So the MVP morning brief sees calendar events only, read by Sol directly.
+- **Platform:** on phone and iPad Sol must feel like a real app, not a website; a website is fine on the computer. How (installable web app or store-style app) is decided in architecture; see the decision card on PR #5.
+- **Deferred to architecture:** v2 assistant channel and Claude API cost (brief).
 
 ## Gate: ready for Definition when
 - [x] Problem stated in one sentence, backed by evidence (Problem space)

@@ -12,4 +12,4 @@ Next step (one task, one owner):
 - Shaked approves the Discovery gate, then Definition 2a (MVP feature list)
 
 Blocked on / waiting for Shaked:
-- Gate approval and reading target (docs/01-discovery.md "Open questions"); real ElevenLabs sk_ key before Phase 4
+- Gate approval and platform choice (decision card); real ElevenLabs sk_ key before Phase 4
