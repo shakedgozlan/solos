@@ -42,7 +42,7 @@ Sources: elevenlabs.io/pricing/api · soniox.com/pricing · huggingface.co/ivrit
 ## 2. Instinct AI
 - Shaked's description: iPhone voice-note app that creates reminders, a daily plan and summary, and manages the iCloud calendar.
 - Best name match found: **Instinct (instinct.com)**, Spear Street Technology, San Francisco. It is a "no-app" agent used by iMessage, WhatsApp, phone call or a web workspace. No App Store listing found. Confirmed integration: Google Workspace (Calendar, Tasks, Gmail). iCloud, export (Markdown, PDF, CSV), API, webhooks, Shortcuts, Hebrew: all Unconfirmed. Sources: instinct.com/privacy-policy, builtin.com/articles/instinct-ai, eesel.ai/blog/instinct-ai-review.
-- This does not fully match Shaked's description (iCloud, voice notes), so the identification is uncertain. Several similar App Store apps exist. **Next: Shaked sends a screenshot of the app.**
+- Shaked's screenshot (2026-11-19) shows a desktop notification from "Instinct" with a white round "I" icon. That fits instinct.com (it reaches people through iMessage and a Mac app), so this is most likely the app (Assumption: icon not yet matched against an official source). Open: whether Shaked's calendar link goes through iCloud or a Google account.
 
 ### Realistic ways for Sol to get Instinct's data, most to least practical
 1. **Read the calendar and reminders it writes.** If Instinct writes to iCloud Calendar/Reminders (or Google Calendar/Tasks), Sol reads those directly. Works without Instinct's cooperation.
