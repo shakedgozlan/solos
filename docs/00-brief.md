@@ -56,6 +56,7 @@ Devices: phone, computer and iPad (Shaked, 2026-11-19). Session length: not yet 
 ## Constraints
 - Deadline: none. Target a strong MVP in about two weeks, 1 to 2 hours a day of Shaked's time.
 - Budget / tools: Max plan; Figma ("gozlans's team"); GitHub repo solos.
+- Running cost: up to about $10/month if Sol proves useful (Shaked). Claude's estimate: about $2-3/month at normal use (speech-to-text, Claude API, free hosting tiers). The Claude API is billed separately from the Max plan.
 - Language and direction: Hebrew first (RTL), Hebrew/English toggle.
 - Product name: Sol (repo: solos).
 - Platform: phone, computer and iPad. Assumption: one responsive web app that can be installed on all three (a PWA), with phone as the main design size.
@@ -96,7 +97,6 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 - [ ] Can Instinct AI share data? Shaked guesses it can export Markdown (.md) files (Assumption, to check in Discovery)
 - [x] Instinct AI: decided (decisions.md #9). Dashboard first; Sol's own assistant (WhatsApp, Telegram or in-app voice) replaces Instinct in v2.
 - [ ] v2 assistant: channel and Claude API running cost (check in Discovery)
-- [ ] Monthly running-cost limit (hosting, speech, AI)
 - [ ] Smoking: quit date or step-down plan
 - [x] Data sources: Garmin may connect. Money never connects to any account or bank; Sol gets money info only from what Shaked says (decisions.md #11)
 - [x] Privacy: a secure cloud database is fine (decisions.md #12)
