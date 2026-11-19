@@ -1,18 +1,17 @@
 # Status
 Updated: 2026-11-19 · by: Project lead (Opus 5.5)
 
-Phase: 0 Brief
-Gate: in review (00-brief.md draft v1)
+Phase: 1 Discovery
+Gate: not started (Phase 0 gate approved, decisions.md #13)
 
 Done since last update:
-- docs/ structure set up (PR #1)
-- 0a intake done; 0b brief drafted and reviewed (docs/00-brief.md)
+- Phase 0 complete: brief approved (docs/00-brief.md), decisions #1-13 logged
 
 Next step (one task, one owner):
-- Shaked approves the brief and answers its open questions; then 1a self-research
+- 1a self-research, then 1b desk research threads. Early priorities: test Hebrew+English speech-to-text engines; check what Instinct AI can export
 
 Blocked on / waiting for Shaked:
-- Brief approval (then merge PR #1); earlier-version screenshots
+- Nothing. Earlier-version screenshots are optional
 
 Open questions:
 - See docs/00-brief.md, "Open questions"

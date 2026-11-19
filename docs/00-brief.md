@@ -1,7 +1,7 @@
 # 00 · Brief
 > Summary: **Sol**, a personal, voice-first dashboard for Shaked that turns "I want to improve myself" into a clear daily plan, visible progress and short- and long-term achievements, without typing. For Shaked only.
 
-Status: draft v1 (2026-11-19), from Shaked's Day 1 answers. Waiting for Shaked's approval.
+Status: approved by Shaked, 2026-11-19 (decisions.md #13).
 
 ## Vision
 Every morning Shaked opens one place, sees what matters today and how far they have come, and keeps everything up to date by talking to it, not by filling forms.

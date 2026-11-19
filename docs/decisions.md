@@ -16,3 +16,4 @@ To change a decision, add a new line that says what it replaces.
 | 10 | 2026-11-19 | MVP focus areas: Health and body, Learning and skills, Money. Goals and achievements is the system across all of them. Mind and emotions and Relationships wait (mindfulness may sit inside Health as a small habit) | All three hurt daily, show progress within two weeks, and lift the other areas | Shaked |
 | 11 | 2026-11-19 | Money data never connects to banks, cards or any account. Sol knows only what Shaked tells it by voice. Garmin may connect | Shaked keeps full control of money data | Shaked |
 | 12 | 2026-11-19 | Personal data may be stored in a secure cloud database, accessible only to Shaked | Needed to sync phone, computer and iPad | Shaked |
+| 13 | 2026-11-19 | Phase 0 gate: brief (docs/00-brief.md) approved; Phase 1 Discovery starts | Brief complete, reviewed, open questions moved to Discovery | Shaked |
