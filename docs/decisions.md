@@ -17,3 +17,4 @@ To change a decision, add a new line that says what it replaces.
 | 11 | 2026-11-19 | Money data never connects to banks, cards or any account. Sol knows only what Shaked tells it by voice. Garmin may connect | Shaked keeps full control of money data | Shaked |
 | 12 | 2026-11-19 | Personal data may be stored in a secure cloud database, accessible only to Shaked | Needed to sync phone, computer and iPad | Shaked |
 | 13 | 2026-11-19 | Phase 0 gate: brief (docs/00-brief.md) approved; Phase 1 Discovery starts | Brief complete, reviewed, open questions moved to Discovery | Shaked |
+| 14 | 2026-11-19 | Smoking: quit date (not step-down), set after Shaked finishes the current army reserve tour; exact date TBD | Research shows both work equally well; Shaked prefers a quit date and timing it after reserve duty | Shaked |
