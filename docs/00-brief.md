@@ -43,7 +43,7 @@ Devices: phone, computer and iPad (Shaked, 2026-11-19). Session length: not yet 
 - Product name: Sol (repo: solos).
 - Platform: phone, computer and iPad. Assumption: one responsive web app that can be installed on all three (a PWA), with phone as the main design size.
 - Input: voice first. Manual typing must be the exception, never the main path.
-- Connections Shaked asked for: iCloud (Apple) Calendar, Google Calendar, maybe Notion.
+- Connections Shaked asked for: iCloud (Apple) Calendar, Google Calendar, maybe Notion. Garmin is allowed. Money: no connections at all.
 
 ## Suggested connections (Claude, for Shaked to choose)
 Shaked asked for suggestions. Each needs a feasibility check in Discovery.
@@ -51,7 +51,6 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 - **Apple Health**: weight, steps, mindful minutes; one hub for data from Garmin and other apps.
 - **The AI voice app's own data**: tasks and daily summaries, if it can export or share them. Without this, the dashboard sees calendar events only.
 - **Speech-to-text inside the dashboard**: so a voice note can update a goal, log a meal, or mark a smoke-free day.
-- **Bank or card statements** (later): money tracking from a monthly file instead of logging each purchase.
 
 ## Deal breakers
 - Too much to write. If keeping it current takes typing, Shaked will stop using it.
@@ -59,9 +58,10 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 
 ## Earlier attempt
 - What existed: goals, notes, fitness tracking, all fairly broad.
-- What did not work: Shaked can't say exactly yet ("something didn't work"). Screenshots will follow.
+- What did not work (Shaked, 2026-11-19): it was never finished. The design was uncomfortable and looked bad, so Shaked stopped using it. Every change had to be made on a specific page, so changes took a long time. There was so much left to fix that Shaked gave up.
+- Lesson: reach a high-quality MVP fast, with a small scope, then improve it step by step. Changes must be cheap (shared components, not page-by-page edits).
 - Already decided (decisions.md #3): it was weak in design, code and usability, and is used only as a "what to avoid" reference.
-- Claude's hypothesis (Assumption, to check against the screenshots): it was a manual-entry tool that covered many areas equally, so it took effort to keep up and gave no clear "what now". This matches deal breaker #1.
+- Screenshots: optional, whenever Shaked has them.
 
 ## Claude's critique
 1. **The scope is very wide** (six groups, about 20 goals). Resolved: the MVP covers 3 areas (decisions.md #10).
@@ -70,10 +70,9 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 
 ## Open questions
 - [x] Top 3 areas: Health and body, Learning and skills, Money (decisions.md #10)
-- [ ] Can Instinct AI share data (calendar only, or more)?
-- [ ] Earlier version: screenshots, and why it was dropped
+- [ ] Can Instinct AI share data? Shaked guesses it can export Markdown (.md) files (Assumption, to check in Discovery)
 - [x] Instinct AI: decided (decisions.md #9). Dashboard first; Sol's own assistant (WhatsApp, Telegram or in-app voice) replaces Instinct in v2.
 - [ ] v2 assistant: channel and Claude API running cost (check in Discovery)
-- [ ] Garmin and money data: connect automatically, or is a short voice note enough?
-- [ ] Privacy: health, smoking, weight and money data are sensitive. Where may they be stored?
-- [ ] Daily use: minutes per morning; evening use too?
+- [x] Data sources: Garmin may connect. Money never connects to any account or bank; Sol gets money info only from what Shaked says (decisions.md #11)
+- [x] Privacy: a secure cloud database is fine (decisions.md #12)
+- [ ] Daily use: Shaked says it depends on the day and on what Sol offers. To be learned in the real-use test (step 3c)
