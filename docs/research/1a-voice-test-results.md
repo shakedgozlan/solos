@@ -1,5 +1,5 @@
 # 1a voice test: results
-Updated: 2026-11-19 · by: Researcher 1a-test (Opus 5.5, high) · Status: done, awaiting Shaked's approval of the engine
+Updated: 2026-11-19 · by: Researcher 1a-test (Opus 5.5, high) · Status: done, ElevenLabs Scribe approved (decisions.md #15)
 
 > **Recommendation: ElevenLabs Scribe.** On the three read sentences it made no meaning errors. ivrit.ai made two: Wolt became "וולד", and "של אוכל בחוץ" (the budget category) became nonsense. On the noisy free-speech clip ElevenLabs was clearly cleaner. Neither engine writes most English words in English letters, and ElevenLabs writes numbers as words ("שמונים ושתיים נקודה ארבע"). Sol's AI step must turn both into clean data, which it needs to do anyway. Soniox was dropped (decision #14).
 
@@ -31,6 +31,6 @@ Most of the remaining WER is English written in Hebrew letters ("וורקאוט"
 - Wispr Flow (Shaked's idea): a dictation keyboard, not a service Sol can call (Assumption: no public speech API). Not tested.
 
 ## Next
-1. Shaked approves the engine (log in decisions.md).
+1. Done: Shaked approved ElevenLabs Scribe (#15).
 2. Shaked confirms references for 4-5 (/mnt/project-files/voice-test/references-4-5-draft.md). Optional; it won't change the pick.
 3. Shaked saves the real `sk_` ElevenLabs key before development (Phase 4).

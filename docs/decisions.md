@@ -18,3 +18,4 @@ To change a decision, add a new line that says what it replaces.
 | 12 | 2026-11-19 | Personal data may be stored in a secure cloud database, accessible only to Shaked | Needed to sync phone, computer and iPad | Shaked |
 | 13 | 2026-11-19 | Phase 0 gate: brief (docs/00-brief.md) approved; Phase 1 Discovery starts | Brief complete, reviewed, open questions moved to Discovery | Shaked |
 | 14 | 2026-11-19 | Soniox dropped from the voice test | Requires a $10 minimum top-up; not worth it for a test when ElevenLabs and ivrit.ai remain | Shaked |
+| 15 | 2026-11-19 | Voice engine: ElevenLabs Scribe. Sol adds an AI step that turns spelled-out numbers and Hebrew-lettered English into clean data | No meaning errors in the 5-recording test (ivrit.ai made 2), cleaner on noise, free tier covers the volume, no model hosting | Shaked |
