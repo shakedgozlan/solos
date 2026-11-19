@@ -63,7 +63,7 @@ Full table in [similar-apps.md](research/similar-apps.md).
 ## Assumptions still untested
 - Assumption: fixing a voice entry on the read-back card is quicker than typing it from scratch (test in 3c).
 - Assumption: Sol can read iCloud Calendar directly (Apple's standard calendar access with an app-specific password). Confirm in architecture.
-- Assumption: ElevenLabs' second-language setting keeps more English in English letters. Not tested yet: the test ran on the website, and the API needs the real key (Phase 4).
+- Assumption: ElevenLabs' second-language setting keeps more English in English letters. Not tested yet: the test ran on the website. The saved key is ElevenLabs' key ID, which the API rejects (checked 2026-11-19); the real key starts with sk_.
 - Assumption: Sol can get Garmin and Apple Health data (Shaked wants both, 2026-11-19). Apple Health can only be read by an app installed from Apple's tools, not by a website (Assumption, check in architecture).
 - Open for 3c (the real-use test, where Shaked uses a working prototype on the phone for a few days): weekly or monthly budget, how many notifications, whether a "rest day" is needed, whether a savings pledge is wanted.
 
@@ -73,6 +73,7 @@ Full table in [similar-apps.md](research/similar-apps.md).
 - **Baselines:** rough numbers given (cigarettes per day at home and in reserve duty, tobacco pouch price, eating-out spend). Kept outside the repo, like all personal numbers; Shaked confirms them in Sol at setup.
 - **Instinct AI:** confirmed as instinct.com. Its data cannot be pulled out, and its iCloud connection does not work properly. So the MVP morning brief sees calendar events only, read by Sol directly.
 - **Platform:** on phone and iPad Sol must feel like a real app, not a website; a website is fine on the computer. How (installable web app or store-style app) is decided in architecture; see the decision card on PR #5.
+- **Read-back flow:** while Shaked speaks, a rough live preview of the words; after recording stops, the accurate transcript and the read-back card (Shaked, matches Assumption 1).
 - **Deferred to architecture:** v2 assistant channel and Claude API cost (brief).
 
 ## Gate: ready for Definition when
