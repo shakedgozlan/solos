@@ -57,5 +57,4 @@ Three gaps are one engine to build; three are rules every screen follows.
 **Effect on the plan:** the speech-engine test becomes the first technical task, and the data model (one stream of entries) is decided before screens are designed. The feature list itself is set in Definition (step 2a).
 
 ## Open questions for Shaked
-- Which speech engines to test first (recommend Scribe V2 and Gemini, with Soniox as a third).
 - Reading goal: minutes per day, sessions per week, or no number at all.
