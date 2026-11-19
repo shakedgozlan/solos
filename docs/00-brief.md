@@ -76,6 +76,7 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 - [ ] Top 3 areas for the MVP (from the table above)
 - [ ] Can Instinct AI share data (calendar only, or more)?
 - [ ] Earlier version: screenshots, and why it was dropped
-- [ ] Complement or replace Instinct AI. Shaked's wish (2026-11-19): Sol eventually replaces it with a personal AI assistant, for example a WhatsApp bot. Timing is a decision card.
+- [x] Instinct AI: decided (decisions.md #9). Dashboard first; Sol's own assistant (WhatsApp, Telegram or in-app voice) replaces Instinct in v2.
+- [ ] v2 assistant: channel and Claude API running cost (check in Discovery)
 - [ ] Garmin and money data: connect automatically, or is a short voice note enough?
 - [ ] Privacy: health, smoking, weight and money data are sensitive. Where may they be stored?
