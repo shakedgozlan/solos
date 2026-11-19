@@ -63,14 +63,10 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 - Already decided (decisions.md #3): it was weak in design, code and usability, and is used only as a "what to avoid" reference.
 - Claude's hypothesis (Assumption, to check against the screenshots): it was a manual-entry tool that covered many areas equally, so it took effort to keep up and gave no clear "what now". This matches deal breaker #1.
 
-## Claude's critique (to discuss, not decided)
-1. **The scope is very wide.** Six groups and about 20 goals. A dashboard that tracks all of them equally risks repeating the earlier version. Recommendation: the MVP covers 3 groups well, chosen by Shaked; the rest come later.
-2. **Overlap with the AI voice app.** That app already does reminders, daily plans and calendar, and Shaked loves it. Rebuilding that is a large, separate product. But there is a tension: the Vision says "one place", and if the dashboard only reads the calendar, it sees events but likely not the app's tasks or summaries, which the morning brief needs (Assumption: depends on what the app can share). Options to decide in Discovery:
-   - A. Complement it: the dashboard reads the calendar the app already fills, and adds what the app lacks (goals, achievements, progress, health, money, reflection).
-   - B. Replace it: build our own voice assistant inside the dashboard.
-   - C. Hybrid: the dashboard has its own simple voice capture for goal and progress updates, and leaves tasks and calendar to the app.
-   First lean: A or C. Needs a check of what the app can export or connect to.
-3. **"Talk and it does everything"** is the heart of the product, not a feature. It shapes Discovery: we need to test how voice input can update goals and progress reliably.
+## Claude's critique
+1. **The scope is very wide** (six groups, about 20 goals). Resolved: the MVP covers 3 areas (decisions.md #10).
+2. **Overlap with Instinct AI.** Resolved: dashboard first, Sol's own assistant replaces Instinct in v2 (decisions.md #9). Remaining risk: if Sol only reads the calendar, the morning brief sees events but likely not Instinct's tasks (Assumption: depends on what Instinct can share).
+3. **"Talk and it does everything"** is the heart of the product, not a feature. Discovery must test how voice input can update goals and progress reliably. Waiting for Shaked's view.
 
 ## Open questions
 - [x] Top 3 areas: Health and body, Learning and skills, Money (decisions.md #10)
@@ -80,3 +76,4 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 - [ ] v2 assistant: channel and Claude API running cost (check in Discovery)
 - [ ] Garmin and money data: connect automatically, or is a short voice note enough?
 - [ ] Privacy: health, smoking, weight and money data are sensitive. Where may they be stored?
+- [ ] Daily use: minutes per morning; evening use too?
