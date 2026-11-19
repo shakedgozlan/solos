@@ -97,7 +97,7 @@ Shaked asked for suggestions. Each needs a feasibility check in Discovery.
 - [ ] Can Instinct AI share data? Shaked guesses it can export Markdown (.md) files (Assumption, to check in Discovery)
 - [x] Instinct AI: decided (decisions.md #9). Dashboard first; Sol's own assistant (WhatsApp, Telegram or in-app voice) replaces Instinct in v2.
 - [ ] v2 assistant: channel and Claude API running cost (check in Discovery)
-- [ ] Smoking: quit date or step-down plan
+- [x] Smoking: quit date, set after the reserve tour ends; exact date TBD (decisions.md #14)
 - [x] Data sources: Garmin may connect. Money never connects to any account or bank; Sol gets money info only from what Shaked says (decisions.md #11)
 - [x] Privacy: a secure cloud database is fine (decisions.md #12)
 - [ ] Daily use: Shaked says it depends on the day and on what Sol offers. To be learned in the real-use test (step 3c)
