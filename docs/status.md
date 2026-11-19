@@ -12,4 +12,3 @@ Next step (one task, one owner):
 
 Blocked on / waiting for Shaked:
 - Real ElevenLabs sk_ key before Phase 4 (saved value is the key ID)
-- Eating-out baseline: per day or per meal (/mnt/project-files/discovery/baselines-private.md)
