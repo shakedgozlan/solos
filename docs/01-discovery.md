@@ -1,7 +1,7 @@
 # 01 · Discovery
 > Summary: Shaked wants to improve health, learning and money at once, but most apps built for this ask for typing, punish missed days, or handle English only. Their favorite tool (Instinct AI) proves the real need: talk once and the rest happens. **Strongest insight:** no app turns one mixed Hebrew/English voice note into structured progress across several areas, and that is exactly what Sol should do. **Recommendation:** move to Definition with a voice-first MVP built on one shared stream of entries, ElevenLabs Scribe for speech, and progress that never resets.
 
-Status: draft for the Discovery gate · Writer: Opus 5.5 (medium) · Date: 2026-11-19
+Status: approved by Shaked, 2026-11-19 (decisions.md #20) · Writer: Opus 5.5 (medium) · Date: 2026-11-19
 Builds on: [00-brief.md](00-brief.md), [decisions.md](decisions.md)
 
 ## Problem space
@@ -72,7 +72,7 @@ Full table in [similar-apps.md](research/similar-apps.md).
 - **Smoking support:** Shaked has quit-smoking pills and plans to take them, not started yet. Sol tracks the pills as part of the plan and does not advise on them. Quit-date method settled (#14); the date comes after reserve duty.
 - **Baselines:** rough numbers given (cigarettes per day at home and in reserve duty, tobacco pouch price, eating-out spend). Kept outside the repo, like all personal numbers; Shaked confirms them in Sol at setup.
 - **Instinct AI:** confirmed as instinct.com. Its data cannot be pulled out, and its iCloud connection does not work properly. So the MVP morning brief sees calendar events only, read by Sol directly.
-- **Platform:** on phone and iPad Sol must feel like a real app, not a website; a website is fine on the computer. How (installable web app or store-style app) is decided in architecture; see the decision card on PR #5.
+- **Platform:** on phone and iPad Sol must feel like a real app. MVP: an installable web app (home-screen icon, full screen, notifications); a real-app wrapper later if Apple Health is wanted (#21). A website is fine on the computer.
 - **Read-back flow:** while Shaked speaks, a rough live preview of the words; after recording stops, the accurate transcript and the read-back card (Shaked, matches Assumption 1).
 - **Deferred to architecture:** v2 assistant channel and Claude API cost (brief).
 
@@ -80,6 +80,6 @@ Full table in [similar-apps.md](research/similar-apps.md).
 - [x] Problem stated in one sentence, backed by evidence (Problem space)
 - [x] Primary audience chosen by Shaked (Shaked only, #1)
 - [x] At least 5 competitors or alternatives reviewed (34 apps in 6 categories, plus Instinct)
-- [ ] Shaked approves this summary
+- [x] Shaked approves this summary (#20)
 
 **Not blocking the gate:** the real ElevenLabs API key (needed before development, Phase 4); confirming the voice-test references for clips 4-5 (optional).

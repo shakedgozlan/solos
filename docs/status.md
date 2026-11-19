@@ -1,15 +1,15 @@
 # Status
 Updated: 2026-11-19 · by: Writer 1c synthesis (Opus 5.5)
 
-Phase: 1 Discovery
-Gate: Discovery summary ready for Shaked's approval (docs/01-discovery.md)
+Phase: 2 Definition
+Gate: Discovery approved (decisions.md #20)
 
 Done since last update:
-- 1c synthesis: docs/01-discovery.md (problem, 7 insights, untested assumptions)
-- Research behind it: 1a voice (#16, #17), 1b behavior science, similar apps (#15)
+- 1c synthesis: docs/01-discovery.md approved; reading target (#18), Instinct data out (#19), platform PWA first (#21)
 
 Next step (one task, one owner):
-- Shaked approves the Discovery gate, then Definition 2a (MVP feature list)
+- Definition 2a: MVP feature list (docs/02-definition.md)
 
 Blocked on / waiting for Shaked:
-- Gate approval and platform choice (decision card); real ElevenLabs sk_ key before Phase 4
+- Real ElevenLabs sk_ key before Phase 4 (saved value is the key ID)
+- Eating-out baseline: per day or per meal (/mnt/project-files/discovery/baselines-private.md)

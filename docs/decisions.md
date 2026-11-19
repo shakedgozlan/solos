@@ -23,3 +23,5 @@ To change a decision, add a new line that says what it replaces.
 | 17 | 2026-11-19 | Voice engine: ElevenLabs Scribe. Sol adds an AI step that turns spelled-out numbers and Hebrew-lettered English into clean data | No meaning errors in the 5-recording test (ivrit.ai made 2), cleaner on noise, free tier covers the volume, no model hosting | Shaked |
 | 18 | 2026-11-19 | Reading target: one chapter a day; reading more is a bonus, never required | Shaked's choice; evidence favors no option (1b) | Shaked |
 | 19 | 2026-11-19 | Instinct AI data is not available to Sol; the MVP morning brief uses calendar events only, read by Sol directly | Instinct has no export and its iCloud link does not work properly | Shaked |
+| 20 | 2026-11-19 | Discovery gate: docs/01-discovery.md approved; Phase 2 Definition starts | Problem, audience and competitors covered; Reviewer pass done; Shaked's answers added | Shaked |
+| 21 | 2026-11-19 | Platform: MVP is an installable web app (PWA) on phone and iPad, website on the computer; wrap as a real app later if Apple Health is wanted | Feels like an app, free, keeps the two-week MVP; same code can become a real app later | Shaked |
