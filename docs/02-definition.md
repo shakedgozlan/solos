@@ -86,4 +86,4 @@ Superseded by the cut order in "Sol OS reshape" (#30); the week-by-week plan is 
 ## Gate: ready for Design when
 - [x] Shaked approved the MVP scope and non-goals (2a; #22, #23)
 - [x] Tasks decision (19; #25)
-- [ ] Every Must feature has a user story with acceptance criteria (2c: [02c-user-stories.md](02c-user-stories.md), awaiting approval)
+- [x] Every Must feature has a user story with acceptance criteria (2c: [02c-user-stories.md](02c-user-stories.md), #31)

@@ -1,7 +1,7 @@
 # 02c · User stories for every Must
 > Summary: one short story and a few checkable "done when" lines for each Must in the Sol OS MVP ([02-definition.md](02-definition.md), reshaped in #30). Design builds the apps to these lines; Development tests against them. Later and dropped features have no stories. Shoulds (18 calendar, 24 goal research) are the first to cut and get stories only if built.
 
-Status: draft for Shaked's approval · Writer: Product strategist, Opus 5.5 (medium) · Reviewer pass: Opus 5.5 (high), 2026-11-20, fixes applied
+Status: approved by Shaked (#31) · Writer: Product strategist, Opus 5.5 (medium) · Reviewer pass: Opus 5.5 (high), 2026-11-20, fixes applied
 Builds on: [02-definition.md](02-definition.md), [02b](02b-who-and-success.md), [research M1-M6](research/how-sol-improves-you.md) (PR #11), [decisions.md](decisions.md). "I" is Shaked.
 
 ## Applies to every story
