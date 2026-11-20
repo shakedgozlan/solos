@@ -7,7 +7,7 @@ Source: [github.com/jake17007/jakes-brain](https://github.com/jake17007/jakes-br
 
 | Idea | Where it comes from | Which focus area it serves | Size (S/M/L) | Note |
 |------|---------------------|----------------------------|--------------|------|
-| **Claude connector for Sol**: Shaked talks to the Claude app (Shaked already uses it) and Claude reads and writes Sol, like it does Notion | `server/apps/connector.js`, `deploy/connector/` | All (capture) | M | Strongest idea. Uses the Max plan instead of paid API calls for that path. Proposed to Shaked as a decision (2026-11-20) |
+| **Claude connector for Sol**: Shaked talks to the Claude app (Shaked already uses it) and Claude reads and writes Sol, like it does Notion | `server/apps/connector.js`, `deploy/connector/` | All (capture) | M | Strongest idea. Uses the Max plan instead of paid API calls for that path. Decided: later, build connector-ready (decisions.md #28) |
 | Build Sol's server as one simple API route per action, each described in a header comment | `SPEC.md`, `server/apps/goals.js` | All (cheap changes) | S | Makes the connector, export and future changes cheap. Fits the "changes must be cheap" lesson. Hand to the Architect (05) |
 | Each area is a small self-contained module on one shared kit of components | `web/apps/<id>/`, `web/kit.js` | All | S | Same lesson as the earlier attempt: change once, not page by page. Architect + Design system |
 | "Usuals": the same meal or expense logged with one tap, same numbers every time | Food app, `food_search` in the connector | Money, Food | S | Good fit for eating out vs cooking. Candidate for the read-back card (3) |
