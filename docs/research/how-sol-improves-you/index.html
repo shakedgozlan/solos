@@ -1,0 +1,180 @@
+<title>How Sol Improves You</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: one narrow column; a loop diagram up top, then tabs that switch between MVP, Sol Lab, Later and Don't build. Same palette family as the Sol OS map. */
+:root{
+  --bg:#F3F2F0;--surface:#FFFFFF;--ink:#1E1D1C;--muted:#6B6762;--line:#DEDAD5;
+  --accent:#D4553A;--accent-ink:#FFFFFF;--accent-soft:#F7E1DA;
+  --lab:#5C6B8A;--lab-soft:#E3E7EF;--drop:#8A847D;--drop-soft:#ECEAE7;
+  --strong:#2F6B3A;--strong-soft:#DDEBDD;
+  --display:"Space Grotesk",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#161616;--surface:#222121;--ink:#F1EFEC;--muted:#A39E97;--line:#36332F;
+  --accent:#F07355;--accent-ink:#1A0F0C;--accent-soft:#3D2620;
+  --lab:#9DAACB;--lab-soft:#262C3A;--drop:#A39E97;--drop-soft:#2B2928;
+  --strong:#8FCB98;--strong-soft:#1F3022;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161616;--surface:#222121;--ink:#F1EFEC;--muted:#A39E97;--line:#36332F;
+  --accent:#F07355;--accent-ink:#1A0F0C;--accent-soft:#3D2620;
+  --lab:#9DAACB;--lab-soft:#262C3A;--drop:#A39E97;--drop-soft:#2B2928;
+  --strong:#8FCB98;--strong-soft:#1F3022;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:680px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h1{font-size:2rem;line-height:1.15}
+h2{font-size:1.3rem}
+h3{font-size:1.02rem;font-weight:500}
+p{margin:0}
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lead{font-size:1.08rem}
+.muted{color:var(--muted)}
+header{display:flex;flex-direction:column;gap:12px}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:10px 18px;font-weight:600;align-self:flex-start}
+.essence{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.essence strong{color:var(--accent)}
+/* loop diagram */
+.loops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.loops{grid-template-columns:1fr}}
+.loop{border-top:3px solid var(--accent);background:var(--surface);border-radius:4px 4px 12px 12px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.loop .when{font-size:.78rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.loop p{font-size:.93rem}
+.coreloop{font-size:.92rem;color:var(--muted)}
+.coreloop b{color:var(--ink);font-weight:600}
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:.9rem}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab .n{opacity:.6;margin-inline-start:4px;font-variant-numeric:tabular-nums}
+.panel{display:flex;flex-direction:column;gap:10px}
+.panel-intro{font-size:.93rem;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card summary{list-style:none;padding:14px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start;cursor:pointer}
+.card summary::-webkit-details-marker{display:none}
+.card summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.id{font-family:var(--display);font-weight:700;font-size:.85rem;color:var(--muted);padding-top:2px;font-variant-numeric:tabular-nums}
+.card .t{min-width:0}
+.card .where{font-size:.82rem;color:var(--muted);margin-top:2px}
+.chip{font-size:.72rem;font-weight:600;border-radius:999px;padding:3px 9px;white-space:nowrap;letter-spacing:.02em}
+.ev-strong{background:var(--strong-soft);color:var(--strong)}
+.ev-moderate{background:var(--accent-soft);color:var(--accent)}
+.ev-weak{background:var(--lab-soft);color:var(--lab)}
+.ev-failed{background:var(--drop-soft);color:var(--drop);text-decoration:line-through}
+.body{padding:0 16px 16px 16px;display:flex;flex-direction:column;gap:8px;font-size:.93rem}
+.body .src{font-size:.8rem;color:var(--muted);word-break:break-word}
+.body a{color:var(--accent)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.8rem;color:var(--muted)}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.ask ol{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:8px}
+footer{font-size:.8rem;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.card[open] .body{animation:in .18s ease-out}@keyframes in{from{opacity:.4}to{opacity:1}}}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Sol research · 20 Nov 2026</span>
+    <h1>How Sol keeps making you better</h1>
+    <p class="lead">Four fields looked at: second brain, AI agent building, learning science, and the sociology of self-improvement. They agree on one thing.</p>
+    <button class="primary" id="listen" type="button" hidden>Listen to the summary (1 min)</button>
+  </header>
+
+  <section class="essence" aria-labelledby="ess">
+    <span class="eyebrow" id="ess">The essence</span>
+    <p class="lead"><strong>Sol improves you by closing small loops, not by adding things.</strong></p>
+    <p>People get sharper through a few plain habits done often: recalling instead of rereading, explaining in their own words, getting feedback, sleeping and moving. No app or brain game does it for you. Sol's job is to make those habits almost free, and to change itself one small step at a time, based on your own data.</p>
+    <p>That is also the fix for what sank the earlier app. The rule is <strong>one in, one out</strong>.</p>
+  </section>
+
+  <section aria-labelledby="three" style="display:flex;flex-direction:column;gap:12px">
+    <h2 id="three">Three loops carry it</h2>
+    <div class="loops">
+      <div class="loop"><span class="when">Every capture</span><h3>Sol learns your words</h3><p>Each fix on the read-back card is saved and used next time. Sol makes the same mistake less often.</p></div>
+      <div class="loop"><span class="when">Every Saturday</span><h3>Plan vs what happened</h3><p>Sol shows the gap honestly and changes one thing for next week. Never more than one.</p></div>
+      <div class="loop"><span class="when">Every learning session</span><h3>Say it back</h3><p>"What stuck?" in your own words. Saying it yourself is what makes it stay.</p></div>
+    </div>
+    <p class="coreloop">Your approved loop does not change: <b>say it → Sol understands → see your day → Saturday reflection → Sol Lab suggests one improvement.</b> The research only adds the arrow back: your corrections and Saturday answers feed what Sol does next.</p>
+  </section>
+
+  <section aria-labelledby="ranked" style="display:flex;flex-direction:column;gap:12px">
+    <h2 id="ranked">What goes where</h2>
+    <div class="legend">Evidence:
+      <span class="chip ev-strong">Strong</span><span class="chip ev-moderate">Moderate</span><span class="chip ev-weak">Weak / opinion</span><span class="chip ev-failed">Failed</span>
+    </div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div id="panels"></div>
+  </section>
+
+  <section class="ask" aria-labelledby="yours">
+    <span class="eyebrow" id="yours">Your call</span>
+    <h2>Your decisions</h2>
+    <p class="muted">Tell me what you think first, by voice note in the thread. No need to pick from a list.</p>
+    <ol>
+      <li><s>Two levels of goals</s> Decided: directions without limit, 3 to 4 active goals.</li>
+      <li><s>Quiet Saturday</s> Decided: Saturday is a normal day; the reflection stays in the evening.</li>
+    </ol>
+  </section>
+
+  <footer>Full notes and sources: docs/research/how-sol-improves-you.md in the repo. Most sources were read at search-result level; anything not checked is marked "unverified" there.</footer>
+</div>
+
+<script>
+const DATA={
+ mvp:{label:'MVP',intro:'All seven fit inside features you already approved. No new screens. Assumption: under a day of build in total.',items:[
+  {id:'M1',t:'Corrections become examples',w:'Understanding step + read-back card',ev:'moderate',d:'Every time you fix a card, Sol saves what you said, what it got wrong and your fix. The closest few go into its instructions next time. This is how Sol gets better at your mixed Hebrew and English without any training.',s:'Few-shot learning, Brown et al. 2020 (unverified)'},
+  {id:'M2',t:'A test set built from real mistakes',w:'Development, invisible to you',ev:'strong',d:'Around 30 to 100 real sentences you said, with the right result. Every new mistake joins the set. Before any change to Sol, the set runs, so a fix never breaks something that worked.',s:'Hamel Husain, evals practice',u:'https://hamel.dev/blog/posts/evals/'},
+  {id:'M3',t:'Plan vs actual on Saturday',w:'Weekly review',ev:'strong',d:'"You planned 5 home meals and made 3." If the gap repeats, Sol suggests a smaller step. People underestimate how long things take, even when they know they usually do.',s:'Planning fallacy, Buehler and Kahneman (unverified here)'},
+  {id:'M4',t:'An honest Saturday summary',w:'Weekly review',ev:'moderate',d:'Sol quotes your own entries and names one thing that did not go well, kindly. AI models tend to flatter people; this rule keeps the review true.',s:'Sycophancy in AI models',u:'https://arxiv.org/abs/2310.13548'},
+  {id:'M5',t:'"What stuck?" in your own words',w:'Learning skills',ev:'strong',d:'You say it, Sol never writes the summary for you. Things you put into your own words are remembered better than things you only read.',s:'Generation effect, Bertsch 2007',u:'https://pubmed.ncbi.nlm.nih.gov/17645161/'},
+  {id:'M6',t:'Saturday as a short fixed ritual',w:'Weekly review',ev:'weak',d:'Same prompts, same order, about five minutes, a clear ending. It should feel like closing the week, not like a performance review.',s:'Rituals, Norton and Gino; GTD weekly review (practice only)'},
+  {id:'M7',t:'One in, one out, on two levels',w:'Goals + Sol Lab (#32) · approved by you',ev:'weak',d:'Directions (where you see yourself in 5, 10, 20 years): no limit, no daily load, seen on Saturday and when you pick your next goal. Active goals (coming weeks): 3 to 4 at most, each with a weekly step and linked to a direction. A new one starts when one finishes or goes back to waiting. Nothing is deleted, and you never run out of work.',s:'Goal conflict research (correlational) and your own history with the earlier app'}
+ ]},
+ lab:{label:'Sol Lab',intro:'The weekly improvement loop. Starts after 2 to 4 weeks of real use, when there is data to learn from.',items:[
+  {id:'L1',t:'Experiment ledger',w:'Sol Lab',ev:'moderate',d:'Each suggestion is a one-week experiment. On Saturday you say keep or drop. Sol writes one lesson and uses it for the next suggestion. Your answer is the signal, never Sol grading itself.',s:'Reflexion, Shinn et al. 2023',u:'https://arxiv.org/abs/2303.11366'},
+  {id:'L2',t:'"What Sol knows about you"',w:'Sol Lab',ev:'moderate',d:'A short page of things Sol learned: usual places, names, patterns. A fact needs at least 3 entries behind it, shows why, and you can delete it.',s:'Generative Agents reflection, Park et al. 2023',u:'https://arxiv.org/abs/2304.03442'},
+  {id:'L3',t:'Recall with confidence',w:'Spaced recall (feature 23)',ev:'strong',d:'Old "What stuck?" answers come back at growing gaps. First you say how sure you are, 0 to 100. Over time you see how well you know what you know. This is the cheapest real "think better" tool found.',s:'Retrieval practice and spacing (Dunlosky 2013); calibration (unverified)'},
+  {id:'L4',t:'"Why does that work?"',w:'Learning skills',ev:'moderate',d:'One follow-up question after a learning note. Explaining why makes knowledge stick and connect.',s:'Elaborative interrogation, Dunlosky 2013'},
+  {id:'L5',t:'"Still true?"',w:'Saturday',ev:'weak',d:'One old note comes back on Saturday so you can keep it, change it or let it go.',s:'Andy Matuschak, evergreen notes (opinion)'},
+  {id:'L6',t:'Experiments with real evidence',w:'Sol Lab suggestions',ev:'moderate',d:'Example: a 10-minute brisk walk before a hard thinking block. The effect is small but real and costs nothing.',s:'Exercise and cognition meta-analysis, Ciria 2023',u:'https://www.nature.com/articles/s41562-023-01554-4'}
+ ]},
+ later:{label:'Later',intro:'Good ideas that need more data, the v2 assistant or the Mind map first.',items:[
+  {id:'X1',t:'Links between notes',w:'Mind map (#29)',ev:'weak',d:'"This relates to what you said on 3 March." Part of the Living map concept you already chose.',s:'Zettelkasten, Luhmann (opinion)'},
+  {id:'X2',t:'Long-term memory for the assistant',w:'v2 assistant',ev:'moderate',d:'A small always-on profile plus a searchable archive of everything you said.',s:'MemGPT, Packer et al. 2023',u:'https://arxiv.org/abs/2310.08560'},
+  {id:'X3',t:'Transition moments',w:'Later',ev:'weak',d:'A reserve duty pause mode, a semester start, a project end: short moments to reset and release goals.',s:'Rites of passage, van Gennep and Turner'},
+  {id:'X4',t:'Share Saturday with one person',w:'Optional',ev:'weak',d:'Send the weekly summary to one trusted person. Helps some people, not others.',s:'Accountability research, high variance (unverified)'},
+  {id:'X5',t:'Decision journal',w:'Later',ev:'weak',d:'"What would make this decision fail?" before a choice, and a check later. Popular, little controlled evidence.',s:'Gary Klein, pre-mortem (practice)'}
+ ]},
+ no:{label:"Don't build",intro:'These sound good but the evidence is against them, or they caused the burnout pattern.',items:[
+  {id:'N1',t:'Identity badges ("You are a reader")',w:'',ev:'failed',d:'The label studies did not replicate. Sol shows what you actually did instead.',s:'Gerber et al. 2016 and 2018',u:'https://isps.yale.edu/research/publications/isps17-23'},
+  {id:'N2',t:'Willpower or energy meters',w:'',ev:'failed',d:'"Willpower runs out" failed in 23 labs. Burnout comes from too many goals and no rest.',s:'Hagger et al. 2016, ego depletion replication',u:'https://pmc.ncbi.nlm.nih.gov/articles/PMC4987495'},
+  {id:'N3',t:'Brain-training games',w:'',ev:'failed',d:'You get better at the game, not smarter in general.',s:'Simons et al. 2016 (unverified link)'},
+  {id:'N4',t:'A life score or all-day logging',w:'',ev:'moderate',d:'Tracking turns into a chore and people quit. Fewer numbers, more plain sentences.',s:'Neff and Nafus, Self-Tracking',u:'https://pmc.ncbi.nlm.nih.gov/articles/PMC5428074'},
+  {id:'N5',t:'"Review your notes" as studying',w:'',ev:'strong',d:'Rereading and highlighting rank low. Sol asks a recall question instead.',s:'Dunlosky et al. 2013'},
+  {id:'N6',t:'Hours toward mastery',w:'',ev:'moderate',d:'"10,000 hours" is a myth. Targeted practice with feedback matters, not the count.',s:'Macnamara et al. 2014',u:'https://pubmed.ncbi.nlm.nih.gov/24986855/'},
+  {id:'N7',t:'A goal backlog or dream board',w:'',ev:'weak',d:'The exact pattern that sank the earlier app. One in, one out.',s:'Goal overload research and your own history'}
+ ]}
+};
+const EV={strong:'Strong',moderate:'Moderate',weak:'Weak / opinion',failed:'Failed'};
+const order=['mvp','lab','later','no'];
+const tabs=document.getElementById('tabs'),panels=document.getElementById('panels');
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+order.forEach((k,i)=>{
+  const g=DATA[k];
+  const b=document.createElement('button');b.type='button';b.className='tab';b.id='tab-'+k;b.setAttribute('role','tab');
+  b.setAttribute('aria-controls','panel-'+k);b.setAttribute('aria-selected',i===0?'true':'false');
+  b.innerHTML=esc(g.label)+'<span class="n">'+g.items.length+'</span>';
+  b.addEventListener('click',()=>show(k));tabs.appendChild(b);
+  const p=document.createElement('div');p.className='panel';p.id='panel-'+k;p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby','tab-'+k);p.hidden=i!==0;
+  p.innerHTML='<p class="panel-intro">'+esc(g.intro)+'</p>'+g.items.map(it=>
+    '<details class="card"><summary><span class="id">'+it.id+'</span><span class="t"><h3>'+esc(it.t)+'</h3>'+(it.w?'<div class="where">'+esc(it.w)+'</div>':'')+'</span><span class="chip ev-'+it.ev+'">'+EV[it.ev]+'</span></summary><div class="body"><p>'+esc(it.d)+'</p><p class="src">Source: '+(it.u?'<a href="'+it.u+'" target="_blank" rel="noopener">'+esc(it.s)+'</a>':esc(it.s))+'</p></div></details>').join('');
+  panels.appendChild(p);
+});
+function show(k){order.forEach(o=>{document.getElementById('tab-'+o).setAttribute('aria-selected',o===k?'true':'false');document.getElementById('panel-'+o).hidden=o!==k;});}
+const SUMMARY="Here is the short version. Sol makes you better by closing small loops, not by adding things. Three loops carry the whole idea. First, every time you fix what Sol understood, Sol saves the fix and uses it next time, so it learns your mixed Hebrew and English. Second, every Saturday Sol compares what you planned with what really happened, honestly, and changes just one thing for next week. Third, after you learn something, you say what stuck in your own words, because saying it yourself is what makes it stay. Your approved loop does not change. Seven small rules fit inside features you already approved, with no new screens. Sol Lab, the weekly improvement loop, starts after a few weeks of real use. Some popular ideas are out, because the research is against them: identity badges, willpower meters, brain games and life scores. And the most important rule, against over-dreaming: one in, one out. I have three questions for you at the bottom of the page. Tell me what you think by voice note.";
+(async()=>{try{const t=await claude.use('tts');if(!t)return;const b=document.getElementById('listen');b.hidden=false;
+  b.addEventListener('click',()=>{if(b.dataset.s==='1'){t.stop();return}t.speak(SUMMARY,{language:'en'}).catch(()=>{})});
+  t.onState(({state})=>{b.dataset.s=state==='speaking'?'1':'0';b.textContent=state==='speaking'?'Stop':'Listen to the summary (1 min)'});
+}catch(e){}})();
+</script>
