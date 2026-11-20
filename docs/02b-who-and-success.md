@@ -27,7 +27,7 @@ In order of importance. "When... I want... so that..." is a standard way to writ
 | J1 | I get a task | to send it to Sol right away, by voice or pasted text, and have Sol organize it | I have no worries and forget nothing | Shaked |
 | J2 | I open Sol | to see all my tasks in the simplest, calmest way | I don't feel overloaded and stuck ("I can't do anything") | Shaked |
 | J3 | I finish something during the day | to mark it done in seconds | the list stays true without effort | Shaked |
-| J4 | my tasks have dates or times | to see them next to my iCloud Calendar events | my day is in one place | Shaked (see open question) |
+| J4 | I plan my day | to see today's calendar events (classes, submissions, fixed times) next to my tasks, but kept separate | fixed times and flexible tasks don't mix | Shaked (#26) |
 | J5 | I look at my goals | to see calm progress on health, learning and money | I know I'm moving | Claude, from 2a |
 | J6 | it is Saturday evening | to see my patterns change | I feel the week mattered | Shaked, from 2a |
 
@@ -45,7 +45,5 @@ Sol counts these quietly in the background (Shaked agreed). They appear only in 
 
 **It failed if** (Shaked): following tasks in Sol is hard or uncomfortable. In numbers: S1 or S2 misses its target two weeks in a row. Then we fix the task flow before adding anything new (Claude).
 
-## Open question for Shaked
-**Tasks in the iCloud Calendar.** You asked Sol to connect tasks to your schedule. Today's plan only *reads* the calendar (feature 18); *writing* to it is v2 (2a non-goals).
-- **A (recommended):** MVP shows tasks and calendar events together on Today, with Sol's own reminders. Writing to the calendar is the first thing after the MVP. Keeps the 3-week build; Sol's reminders already cover "nothing forgotten".
-- **B:** A task with a time also appears in your iCloud Calendar in the MVP (Should). Assumption: about 1 more day of build, same app password; risk of double entries if Instinct also adds them.
+## Tasks and the calendar (Shaked, 2026-11-20, #26)
+Tasks stay in Sol and never go into the iCloud Calendar. The calendar holds only fixed-time things (classes, submissions, appointments); tasks are more flexible. Sol reads the calendar (feature 18) and shows both on Today, separately.

@@ -12,5 +12,5 @@ Next step (one task, one owner):
 - Definition 2c: user stories with acceptance criteria for every Must
 
 Blocked on / waiting for Shaked:
-- Approve 2b and choose calendar option A or B
+- Approve 2b (calendar settled, #26)
 - Real ElevenLabs sk_ key before Phase 4 (saved value is the key ID)

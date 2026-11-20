@@ -56,7 +56,7 @@ Always (already decided): Hebrew first with RTL and a toggle (#2); sign-in and s
 Built in three steps (#25; Assumption: Claude's estimate): week 1, features 1-10 usable on the phone; week 2, 11-18; week 3, 19 tasks with reminders and 24 goal research. If time runs short, cut in this order: 24 goal research; 18 calendar; then shrink 14 to 2 or 3 fixed wins; then shrink 17 to JSON export only. Note: #4's two weeks also cover Design, architecture and the real-use test (3c).
 
 ## Not in the MVP (non-goals)
-- Writing to the calendar, and the chat assistant on WhatsApp or Telegram (v2). Instinct keeps tips meanwhile.
+- Writing tasks to the calendar: never, tasks stay in Sol (#26). The chat assistant on WhatsApp or Telegram (v2). Instinct keeps tips meanwhile.
 - Any bank, card or account connection, ever (#11).
 - Apple Health (needs a real app, #21), Notion, Google Calendar (#22).
 - A full Mind and emotions area beyond mindfulness, mood entries and the reflection question (#23); Relationships (#10).
