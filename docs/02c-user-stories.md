@@ -88,7 +88,8 @@ When I take a calm moment, I want to log it in one sentence.
 ## Daily rhythm
 **10 · Today screen** (J2, J4, S3)
 When I open Sol in the morning, I want to see my day in one calm screen, so that I know what to do without feeling overloaded.
-- Top to bottom: today's tasks, calendar events (when feature 18 is built), "today" goals with their step, "continue where you left off", one progress line per area.
+- The first screen shows: today's tasks, calendar events (when feature 18 is built), "today" goals with their step, "continue where you left off", one progress line per area.
+- The layout is chosen in Design (3a): a Today list, a "Sol OS" home screen of area tiles with live numbers around one record button (docs/ideas.md), or a mix.
 - Tasks and calendar events are visually separate (#26).
 - Growing goals do not appear on Today; a finished task leaves the list (Assumption: kept under "Done today").
 - "Continue where you left off" shows the last book, skill or goal step I logged (Assumption: settled in Design).
