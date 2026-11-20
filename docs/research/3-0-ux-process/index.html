@@ -1,0 +1,201 @@
+<title>Sol UX Process</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: one calm reading column; the six-step path as a horizontal track that stacks on phones; options as three tappable choices. */
+:root{
+  --bg:#F2F2F0; --surface:#FFFFFF; --ink:#1D1E20; --muted:#666A70; --line:#DCDDDA;
+  --accent:#C9472E; --accent-ink:#FFFFFF; --accent-soft:#F6E2DC; --grey:#B9BBB8;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#151617; --surface:#202123; --ink:#EEEEEC; --muted:#A2A5A9; --line:#34363A;
+  --accent:#EE6D52; --accent-ink:#1B0D09; --accent-soft:#3A2420; --grey:#55585C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#151617; --surface:#202123; --ink:#EEEEEC; --muted:#A2A5A9; --line:#34363A;
+  --accent:#EE6D52; --accent-ink:#1B0D09; --accent-soft:#3A2420; --grey:#55585C; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:36px}
+h1{font-family:var(--display);font-size:2.1rem;line-height:1.1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-family:var(--display);font-size:1.25rem;margin:0 0 12px;text-wrap:balance}
+p{margin:0}
+.lede{font-size:1.05rem;max-width:62ch}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 14px}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.frame{display:grid;gap:6px;border-inline-start:3px solid var(--accent);padding-inline-start:14px}
+.frame b{font-weight:600}
+/* path */
+.path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.path li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:6px;align-content:start;min-width:0}
+.path .n{font-family:var(--display);font-size:.8rem;color:var(--muted)}
+.path .w{font-family:var(--display);font-weight:600;font-size:1.05rem}
+.path .d{font-size:.84rem;color:var(--muted)}
+.path li.ui{background:transparent;border-style:dashed}
+@media (max-width:640px){.path{grid-template-columns:1fr 1fr}}
+.after{margin-top:10px}
+/* options */
+.opts{display:grid;gap:10px}
+.opt{text-align:start;display:grid;gap:8px;padding:16px;border-radius:14px;width:100%}
+.opt[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.opt .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.opt .t{font-family:var(--display);font-weight:600;font-size:1.1rem}
+.tag{font-size:.78rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 8px}
+.opt .s{color:var(--muted)}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:.88rem}
+.pc div{min-width:0}
+.pc b{display:block;font-size:.8rem;color:var(--muted);font-weight:600;margin-bottom:2px}
+@media (max-width:520px){.pc{grid-template-columns:1fr}}
+.chosen{font-weight:600;color:var(--accent)}
+/* tables */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:start;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.82rem}
+td.t{white-space:nowrap;font-variant-numeric:tabular-nums}
+ul.plain{margin:0;padding-inline-start:18px;display:grid;gap:6px}
+textarea{width:100%;min-height:96px;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px;resize:vertical}
+.status{font-size:.82rem;color:var(--muted)}
+.ev{font-size:.78rem;color:var(--muted)}
+</style>
+
+<main class="wrap">
+  <header style="display:grid;gap:14px">
+    <p class="muted small">Sol · Design 3-0 · for the morning</p>
+    <h1>How we make Sol's UX excellent</h1>
+    <p class="lede">Good teams don't jump from a feature list to pretty screens. They settle the things, the places, the paths, the words and the structure, test it, and only then style it. Here is that process for Sol, and one choice for you.</p>
+    <div class="row">
+      <button class="primary" id="listen" type="button" hidden>Listen (1 min)</button>
+      <span class="status" id="saveStatus">Loading your saved choice…</span>
+    </div>
+  </header>
+
+  <section class="frame" aria-label="Where we are">
+    <p><b>Where we are:</b> Definition is closed. You asked for UX before UI.</p>
+    <p><b>This step decides:</b> how we work through UX, and where it lives.</p>
+    <p><b>You decide:</b> one of three options below, plus anything you'd change. Your pick also confirms UX before Atomic Design, and (in B) that the coded prototype is the main copy of the design.</p>
+  </section>
+
+  <section>
+    <h2>First, your view</h2>
+    <p class="muted" style="margin-bottom:10px">Think of an app you use every day without effort. What makes it feel that way? Say it in a sentence or two.</p>
+    <textarea id="note" aria-label="Your answer"></textarea>
+    <div class="row" style="margin-top:8px"><button id="mic" type="button" hidden>Speak your answer</button></div>
+  </section>
+
+  <section>
+    <h2>The order good teams follow</h2>
+    <ol class="path">
+      <li><span class="n">3a</span><span class="w">Things</span><span class="d">Every noun in Sol (task, goal, entry, topic…) and how they link, so all apps share one model.</span></li>
+      <li><span class="n">3b</span><span class="w">Places</span><span class="d">Which screens exist and how you move between them.</span></li>
+      <li><span class="n">3c</span><span class="w">Paths</span><span class="d">Six core flows, including empty, error and offline moments.</span></li>
+      <li><span class="n">3d</span><span class="w">Words</span><span class="d">Real Hebrew and English text and data before any layout.</span></li>
+      <li><span class="n">3e</span><span class="w">Structure</span><span class="d">Grey screens: position, size and order only.</span></li>
+      <li><span class="n">3f</span><span class="w">Test</span><span class="d">A week of real use on your phone, with a short voice diary.</span></li>
+    </ol>
+    <p class="after muted small">Then UI with Atomic Design, using the grey structure as the skeleton. Why this order: object mapping (Sophia Prater), Shape Up breadboards (Basecamp), content-first layout, and small repeated tests (NN/g: three rounds of five beat one round of fifteen).</p>
+  </section>
+
+  <section>
+    <h2>Choose where the UX lives</h2>
+    <div class="opts" id="opts"></div>
+    <p class="status" id="chosen" style="margin-top:8px"></p>
+  </section>
+
+  <section>
+    <h2>Where you touch Figma</h2>
+    <ul class="plain">
+      <li><b>During UX (option B):</b> nothing required. You may comment on a frame or drag something if that's faster than explaining.</li>
+      <li><b>Once in UI:</b> about 10 minutes to check the Hebrew fonts look right and publish the shared library (Assumption: Figma may need your account for this).</li>
+      <li><b>Option A</b> would add a Figma click-through review at every step.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Your time, step by step</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Step</th><th>What you do</th><th>Time</th></tr></thead>
+      <tbody>
+        <tr><td>3a Things</td><td>Listen, tap "right" or "not quite"</td><td class="t">10 min</td></tr>
+        <tr><td>3b Places</td><td>Pick one of two ways to move around Sol</td><td class="t">10 min</td></tr>
+        <tr><td>3c Paths</td><td>Walk through six flows, mark what feels wrong</td><td class="t">20 min</td></tr>
+        <tr><td>3d Words</td><td>Fix any line that doesn't sound like you</td><td class="t">15 min</td></tr>
+        <tr><td>3e Structure</td><td>React to two layouts of Home and Today</td><td class="t">20 min</td></tr>
+        <tr><td>3f Test</td><td>Use it for about a week, a few voice notes</td><td class="t">10 min a day</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ev" style="margin-top:6px">Assumption: Claude's estimate. Most of the calendar week is the real-use test.</p>
+  </section>
+
+  <section>
+    <h2>Keeping it from looking like AI made it</h2>
+    <p class="muted" style="margin-bottom:10px">Designers say the problem with AI design isn't ugliness, it's sameness: the same gradients, fonts and three equal cards. What prevents it:</p>
+    <ul class="plain">
+      <li>A short written design brief and a "never" list, followed on every screen.</li>
+      <li>Real content and every state designed, where generic work shows most.</li>
+      <li>Tiles sized by importance, and one signature element, likely the record button.</li>
+      <li>References picked by your taste from real apps (Mobbin), not the model's defaults.</li>
+      <li>A separate critic pass on every screen, so Claude never approves its own work.</li>
+    </ul>
+  </section>
+
+  <p class="muted small">Full research with sources: docs/research/3-0-ux-process.md in the Sol repository.</p>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const OPTS=[
+ {id:'A',t:'A · Figma first',s:'Claude builds every step in Figma; you review a Figma click-through; code starts after UI.',
+  pro:'Everything in your own tool and profession; easy to lay variants side by side and comment.',
+  con:'Can\'t test the microphone, Hebrew typing or the app on your phone. Design is rebuilt in code later, where it drifts.'},
+ {id:'B',t:'B · Real prototype on your phone',rec:true,s:'Short pages and diagrams for 3a-3d. From 3e, grey screens run as a real app on your phone with the real mic, the real voice engine and Hebrew. Each round is copied into Figma for comments.',
+  pro:'Tests voice, speed and right-to-left in real life. One source of truth; the prototype grows into the app.',
+  con:'Building starts earlier, and Figma becomes a viewing copy rather than where design is made. Risk of polishing too early; guard: it stays grey until the UX gate.'},
+ {id:'C',t:'C · Build now, learn by using',s:'After flows and words, build the MVP plainly and fix what hurts in daily use.',
+  pro:'Fastest; no throwaway work.',
+  con:'Weakest evidence. Structural mistakes surface after they\'re built, when changes cost most, the thing that made the earlier app hard to finish.'}
+];
+let pick=null,note='',ref=null,ready=false,timer;
+function render(){
+  const box=$('opts');box.textContent='';
+  OPTS.forEach(o=>{const b=document.createElement('button');b.type='button';b.className='opt';b.setAttribute('aria-pressed',pick===o.id?'true':'false');
+    b.innerHTML='<span class="top"><span class="t"></span>'+(o.rec?'<span class="tag">Recommended</span>':'')+'</span><span class="s"></span><span class="pc"><span><b>For</b><span class="p"></span></span><span><b>Against</b><span class="c"></span></span></span>';
+    b.querySelector('.t').textContent=o.t;b.querySelector('.s').textContent=o.s;b.querySelector('.p').textContent=o.pro;b.querySelector('.c').textContent=o.con;
+    b.onclick=()=>{pick=pick===o.id?null:o.id;render();save();};box.appendChild(b);});
+  $('chosen').textContent=pick?('Your choice: option '+pick+'.'):'No choice yet. Tap one.';
+}
+function save(){if(!ref){$('saveStatus').textContent='Saving isn\'t available here; your choice stays on this screen.';return;}
+  $('saveStatus').textContent='Saving…';clearTimeout(timer);
+  timer=setTimeout(()=>{ref.set({pick,note,updatedAt:new Date().toISOString()}).then(()=>{$('saveStatus').textContent='Saved. Claude can read it.'}).catch(()=>{$('saveStatus').textContent='Couldn\'t save. Try another tap.'})},700);}
+$('note').addEventListener('input',()=>{note=$('note').value;save();});
+render();
+(async()=>{
+  if(!window.claude||!claude.use){$('saveStatus').textContent='Open this page in Claude to save your choice.';return;}
+  const t10=setTimeout(()=>{if(!ready)$('saveStatus').textContent='Still loading…'},10000);
+  let db=null;try{db=await claude.use('db');}catch(e){}
+  if(!db){clearTimeout(t10);$('saveStatus').textContent='Sign in to save your choice.';}
+  else{ref=db.doc('picks/ux-process');
+    ref.onSnapshot(s=>{clearTimeout(t10);ready=true;if(s.exists){const d=s.data()||{};pick=d.pick||null;if(document.activeElement!==$('note')){note=d.note||'';$('note').value=note;}}
+      $('saveStatus').textContent=s.exists?'Your saved answers are loaded.':'Nothing saved yet. Your first tap saves.';render();},
+      ()=>{clearTimeout(t10);$('saveStatus').textContent='Couldn\'t load saved answers. You can still choose.'});}
+  try{const t=await claude.use('tts');if(t){const b=$('listen');b.hidden=false;
+    const lines=[
+     'Good morning. This is how we make Sol\'s user experience excellent, before any visual design.',
+     'Strong teams work in an order: first the things in the product and how they connect, then the places and how you move between them, then the paths through them, then the real words, then a grey structure with no style, and then a test in real life. Only after that, colours and fonts.',
+     'For Sol, that is six short steps. Each one gives you something to listen to or tap, about ten to twenty minutes of your time.',
+     'There is one choice for you: where the work lives. Option A is Figma first. Option B, which I recommend, is a real grey prototype on your phone, with the real microphone and Hebrew, copied into Figma for your comments. Option C is to build right away and learn by using.',
+     'I recommend B, because voice and speed are the heart of Sol, and only the real phone can test them. In B you don\'t need to touch Figma during this stage at all.',
+     'Before you choose, answer one question at the top: what makes an app you use every day feel effortless?'];
+    t.onState(({state})=>{b.textContent=state==='speaking'?'Stop':'Listen (1 min)'});
+    b.onclick=()=>{if(b.textContent==='Stop'){t.stop();return;}t.speak(lines.map(x=>({text:x})),{language:'en'}).catch(()=>{});};}}catch(e){}
+  try{const d=await claude.use('dictation');if(d){const m=$('mic');m.hidden=false;let on=false;
+    d.onFinal(({text})=>{note=(note?note+' ':'')+text;$('note').value=note;save();});
+    d.onState(({state})=>{on=state==='listening'||state==='starting';m.textContent=on?'Stop':'Speak your answer';});
+    m.onclick=()=>{if(on){d.stop().catch(()=>{});return;}d.start().catch(e=>{if(e&&e.code==='not_granted')m.hidden=true;});};}}catch(e){}
+})();
+</script>
