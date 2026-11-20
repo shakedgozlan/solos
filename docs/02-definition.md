@@ -13,7 +13,7 @@ Ranked by how much Sol fails without it. **Priority** is for scope B: Must = the
 | # | Feature | What it does | Why it is in | Priority | A | B | C |
 |---|---|---|---|---|---|---|---|
 | 1 | **Voice capture** | One big record button on every screen. Audio is saved first, then transcribed (ElevenLabs Scribe, #17). Rough live preview while speaking (Assumption: Scribe's live mode, or the phone's own dictation, can show it) | The heart of the product; "audio never lost" (#15); typing is the deal breaker | Must | ✓ | ✓ | ✓ |
-| 2 | **Understanding step** | AI turns the transcript into entries: amounts, numbers, categories, Hebrew-lettered English fixed. One note can make several entries (P8) | Speech gives text, not data (Insight 5); one note updates several areas (Insight 2) | Must | ✓ | ✓ | ✓ |
+| 2 | **Understanding step** | AI turns the transcript into entries: amounts, numbers, categories, Hebrew-lettered English fixed. One note can make several entries (P8). If Shaked says how they feel ("tired, stressed"), it is saved as a mood entry | Speech gives text, not data (Insight 5); one note updates several areas (Insight 2) | Must | ✓ | ✓ | ✓ |
 | 3 | **Read-back card** | Shows what Sol understood as editable chips; fix by voice or tap, or ignore and it saves (P9) | Speech errors are likely; a fix must cost less than a form | Must | ✓ | ✓ | ✓ |
 | 4 | **One entry stream + history** | Every entry lives in one shared list; areas are views of it. A simple history to scroll, edit or delete | Data model before screens (Insight 2); changes stay cheap, unlike the earlier version | Must | ✓ | ✓ | ✓ |
 | 5 | **Goals with three layers** | Each goal: long target, this week's step, one if-then plan, all set by voice (P1) | Strongest evidence (Insight 4) | Must | ✓ | ✓ | ✓ |
@@ -24,7 +24,7 @@ Ranked by how much Sol fails without it. **Priority** is for scope B: Must = the
 | 10 | **Today screen** | Opens with: this week's steps, today's progress, one line per area, the last few entries | "A good day" in the brief; the one place to look | Must | ✓ | ✓ | ✓ |
 | 11 | **Notifications** | Morning brief push and at most one gentle evening check-in; Shaked picks times (P12). Works on iPhone and iPad with iOS 16.4 or later once Sol is added to the Home Screen; Sol asks permission after a tap; a small server sends the scheduled pushes | Shaked asked for them; the brief's skip-a-week test needs Sol to reach out | Must | | ✓ | ✓ |
 | 12 | **Slip and welcome-back flow** | After a gap or a slip: "Welcome back", a one-sentence re-plan, never a missed-days count (P4) | Never feel bad for missing a day (brief) | Must | copy only | ✓ | ✓ |
-| 13 | **Weekly voice review** | Sunday, five minutes: Sol reads back the week, Shaked reacts by voice, Sol adjusts next week's steps (P5, P6) | Feedback beats tracking alone; the fresh-start moment | Must | | ✓ | ✓ |
+| 13 | **Weekly voice review** | Sunday, five minutes: Sol reads back the week, Shaked reacts by voice, Sol adjusts next week's steps (P5, P6); ends with one reflection question ("What decision this week are you proud of?") | Feedback beats tracking alone; the fresh-start moment | Must | | ✓ | ✓ |
 | 14 | **Short-term achievements** | Few weekly wins ("cooked at home 4 times"), no points (P7) | The brief's "good day" includes achievements | Must | | ✓ | ✓ |
 | 15 | **Learning skills** | Minutes per skill, "What stuck?" after a session (P16) | Learning new skills is an MVP goal (brief, #10) | Must | | ✓ | ✓ |
 | 16 | **Mindfulness minutes** | "Did 10 minutes of calm" by voice; reuses the minutes log from 15 | "Start with mindfulness" is an MVP Health goal (brief, #10) | Must | | ✓ | ✓ |
@@ -34,6 +34,8 @@ Ranked by how much Sol fails without it. **Priority** is for scope B: Must = the
 | 20 | **Garmin** | Steps, sleep, workouts on Health | Zero-typing body data. Assumption: Garmin's official developer program is for businesses and may refuse a personal project | Could | | | ✓ |
 | 21 | **Long-term achievements** | Milestones: 100 smoke-free days, first book, flight fund half way | Brief parked it if the MVP starts with short-term only | Could | | | ✓ |
 | 22 | **Spaced recall in the brief** | Old "What stuck?" answers return at growing intervals (P16) | Light learning boost; needs weeks of data first | Could | | | ✓ |
+
+**P18, already started (endowed progress, Nunes and Drèze 2006; Assumption: later studies show a smaller effect):** every goal starts with honest credit for what Shaked has already done (books read this year, money already saved, pills already bought), never fake progress (Shaked, 2026-11-20, #23).
 
 Always in every option (already decided): Hebrew first with RTL and a Hebrew/English toggle (#2); sign-in and secure sync across phone, iPad and computer (#12); installable web app (#21); calm tone with no "missed", "behind" or "failed" (#15).
 
@@ -57,7 +59,7 @@ Note: the two-week target in #4 also covers Design, architecture and the real-us
 - Any bank, card or account connection, ever (#11).
 - Apple Health (needs a real app, #21), Notion.
 - Google Calendar: after the MVP (#22).
-- Mind and emotions (beyond mindfulness minutes) and Relationships areas (#10).
+- A full Mind and emotions area (beyond mindfulness minutes, mood entries and the weekly reflection question, #23) and Relationships (#10).
 - Streaks, points, leaderboards, calorie or page counting. Investments.
 - Cross-area insights ("you spend more on days you smoke"): needs months of data.
 
