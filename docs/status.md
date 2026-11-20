@@ -12,6 +12,5 @@ Next step (one task, one owner):
 - Definition 2c: user stories with acceptance criteria for every Must
 
 Blocked on / waiting for Shaked:
-- Merge PR #7 (2b)
 - Post-MVP: pick a Mind map concept (A/B/C) in docs/research/mind-map-concepts.md
 - Real ElevenLabs sk_ key before Phase 4 (saved value is the key ID)
