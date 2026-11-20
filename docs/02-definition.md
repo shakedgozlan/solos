@@ -70,4 +70,4 @@ Built in three steps (#25; Assumption: Claude's estimate): week 1, features 1-10
 ## Gate: ready for Design when
 - [x] Shaked approved the MVP scope and non-goals (2a; #22, #23)
 - [x] Tasks decision (19; #25)
-- [ ] Every Must feature has a user story with acceptance criteria (2c)
+- [ ] Every Must feature has a user story with acceptance criteria (2c: [02c-user-stories.md](02c-user-stories.md), awaiting approval)
