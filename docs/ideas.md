@@ -3,11 +3,11 @@ Weekly digest from the Idea scout. Newest week at the top. Not read by default.
 The Product manager reviews it once a week. Shaked moves ideas into 06-backlog.md or rejects them.
 
 ## Review of "Jake's Brain" (repo + video shared by Shaked, 2026-11-20)
-Source: [github.com/jake17007/jakes-brain](https://github.com/jake17007/jakes-brain) and a 44-second video by its author. A one-person "second brain": about 20 small apps (notes, tasks, food, workout, goals, habits, finances...) inside one iPhone home-screen app, run from his own Linux PC. No license file, so it is a reference for ideas only; no code is copied. Video audio was not transcribed (ElevenLabs key is still the key ID); its on-screen captions were read instead.
+Source: [github.com/jake17007/jakes-brain](https://github.com/jake17007/jakes-brain) and a 44-second video by its author. A one-person "second brain": about 20 small apps (notes, tasks, food, workout, goals, habits, finances...) inside one iPhone home-screen app, run from the author's own Linux PC. No license file, so it is a reference for ideas only; no code is copied. Video audio was not transcribed (ElevenLabs key is still the key ID); its on-screen captions were read instead.
 
 | Idea | Where it comes from | Which focus area it serves | Size (S/M/L) | Note |
 |------|---------------------|----------------------------|--------------|------|
-| **Claude connector for Sol**: Shaked talks to the Claude app (which he already uses) and Claude reads and writes Sol, like it does Notion | `server/apps/connector.js`, `deploy/connector/` | All (capture) | M | Strongest idea. Uses the Max plan instead of paid API calls for that path. Proposed to Shaked as a decision, see 2c thread |
+| **Claude connector for Sol**: Shaked talks to the Claude app (Shaked already uses it) and Claude reads and writes Sol, like it does Notion | `server/apps/connector.js`, `deploy/connector/` | All (capture) | M | Strongest idea. Uses the Max plan instead of paid API calls for that path. Proposed to Shaked as a decision (2026-11-20) |
 | Build Sol's server as one simple API route per action, each described in a header comment | `SPEC.md`, `server/apps/goals.js` | All (cheap changes) | S | Makes the connector, export and future changes cheap. Fits the "changes must be cheap" lesson. Hand to the Architect (05) |
 | Each area is a small self-contained module on one shared kit of components | `web/apps/<id>/`, `web/kit.js` | All | S | Same lesson as the earlier attempt: change once, not page by page. Architect + Design system |
 | "Usuals": the same meal or expense logged with one tap, same numbers every time | Food app, `food_search` in the connector | Money, Food | S | Good fit for eating out vs cooking. Candidate for the read-back card (3) |
