@@ -1,7 +1,7 @@
 # 02b · Who Sol is for, and how we know it works
 > Summary: Sol is for Shaked only. Its first job is to take every task off Shaked's mind: send it in one go, Sol organizes it, nothing is forgotten, and opening Sol shows everything without overload. Sol works if, after the real-use test, Shaked follows their tasks easily and forgets nothing; it failed if following tasks feels hard or uncomfortable.
 
-Status: draft, waiting for Shaked's approval · Writer: Product strategist, Opus 5.5 (medium) · 2026-11-20
+Status: approved by Shaked (#26, #27) · Writer: Product strategist, Opus 5.5 (medium) · 2026-11-20
 Builds on: [00-brief.md](00-brief.md), [02-definition.md](02-definition.md) (features by number), [decisions.md](decisions.md) ("#n").
 **From:** *Shaked* = your words or choice; *Claude* = my addition, for you to accept or drop.
 
