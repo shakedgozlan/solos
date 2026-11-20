@@ -12,4 +12,4 @@ Next step (one task, one owner):
 
 Blocked on / waiting for Shaked:
 - Option A, B or C for the UX process (recommended B: grey prototype on the phone)
-- M7 (PR #11); real ElevenLabs sk_ key before Phase 4
+- Real ElevenLabs sk_ key before Phase 4 (saved value is the key ID)
