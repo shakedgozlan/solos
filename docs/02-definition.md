@@ -30,24 +30,25 @@ Ranked by how much Sol fails without it. **Priority** is for scope B: Must = the
 | 16 | **Mindfulness minutes** | "Did 10 minutes of calm" by voice; reuses the minutes log from 15 | "Start with mindfulness" is an MVP Health goal (brief, #10) | Must | | ✓ | ✓ |
 | 17 | **Export and import** | Export everything as Markdown and JSON; import a Markdown file of notes or goals, which Sol turns into entries through the same read-back card | Brief success line: Sol "can take content in, add to it and export it" | Must | | ✓ | ✓ |
 | 18 | **Calendar in the morning brief** | Today's iCloud Calendar events at the top of Today. Read by Sol's server, not the browser, with an app-specific password (needs two-factor sign-in, opens wider iCloud access, so stored encrypted) | The brief is calendar plus goals (#19). Risk: events Instinct failed to sync (#19) will be missing. Fallback: brief without calendar | Should | | ✓ | ✓ |
-| 19 | **Garmin** | Steps, sleep, workouts on Health | Zero-typing body data. Assumption: Garmin's official developer program is for businesses and may refuse a personal project | Could | | | ✓ |
-| 20 | **Long-term achievements** | Milestones: 100 smoke-free days, first book, flight fund half way | Brief parked it if the MVP starts with short-term only | Could | | | ✓ |
-| 21 | **Spaced recall in the brief** | Old "What stuck?" answers return at growing intervals (P16) | Light learning boost; needs weeks of data first | Could | | | ✓ |
+| 19 | **Learning drops** | Short research-based paragraphs on Shaked's chosen skills, sent as pushes during the day. Shaked picks how many (start at 3, up to 7) and can say "more like this" or "less". Each drop links to Shaked's skill goals and can be saved as a note | Shaked's favorite Instinct feature (2026-11-20). Sol can make it personal: it knows the skills goals and the "What stuck?" answers. Assumption: about $1/month of Claude API at 7 a day. Pure content, never a task, so it does not break P12 | Should | | ✓ | ✓ |
+| 20 | **Garmin** | Steps, sleep, workouts on Health | Zero-typing body data. Assumption: Garmin's official developer program is for businesses and may refuse a personal project | Could | | | ✓ |
+| 21 | **Long-term achievements** | Milestones: 100 smoke-free days, first book, flight fund half way | Brief parked it if the MVP starts with short-term only | Could | | | ✓ |
+| 22 | **Spaced recall in the brief** | Old "What stuck?" answers return at growing intervals (P16) | Light learning boost; needs weeks of data first | Could | | | ✓ |
 
 Always in every option (already decided): Hebrew first with RTL and a Hebrew/English toggle (#2); sign-in and secure sync across phone, iPad and computer (#12); installable web app (#21); calm tone with no "missed", "behind" or "failed" (#15).
 
 ## Scope options
 | | A · Voice loop only | **B · Voice loop + daily rhythm (recommended)** | C · Full first version |
 |---|---|---|---|
-| Features | 1-10, 12 as copy | 1-18 | 1-21 |
+| Features | 1-10, 12 as copy | 1-19 | 1-22 |
 | Build time (Assumption: Claude's estimate, build only) | About 1 week | About 2 weeks, tight | About 3 to 4 weeks |
 | Shaked's project time | Lowest | Within 1-2 h a day | Over the target |
-| What Shaked gets | Talk, confirm, see progress. Must remember to open Sol | Sol also reaches out (push, brief) and closes each week | Everything in B plus Garmin data and long-term milestones |
+| What Shaked gets | Talk, confirm, see progress. Must remember to open Sol | Sol also reaches out (push, brief, learning drops) and closes each week | Everything in B plus Garmin data and long-term milestones |
 | Main risk | Fails the brief: no push, no achievements, no export, and Sol only waits | Push server, calendar access, sign-in and sync all land in two weeks | Garmin may refuse; repeats the earlier version's "never finished" |
 
-**Recommendation: B, built in two steps.** B is the smallest scope that meets the brief: a good day (brief, calendar, progress, achievements; tasks stay in Instinct, #9, #19) and the success test ("if Shaked skips Sol for a week, something is missing"), which needs Sol to reach out, not only wait. To keep the "never finished" risk low, A is usable on the phone by day 7, then 11-18 are added in the second week. Items 19-21 need outside approval or weeks of data, so they gain nothing by being early.
+**Recommendation: B, built in two steps.** B is the smallest scope that meets the brief: a good day (brief, calendar, progress, achievements; tasks stay in Instinct, #9, #19) and the success test ("if Shaked skips Sol for a week, something is missing"), which needs Sol to reach out, not only wait. To keep the "never finished" risk low, A is usable on the phone by day 7, then 11-19 are added in the second week. Items 20-22 need outside approval or weeks of data, so they gain nothing by being early.
 
-If time runs short, cut in this order (they move to the first update, not lost): 18 calendar (brief works without it); then shrink 14 to 2 or 3 fixed weekly wins; then shrink 17 to JSON export only, with import next.
+If time runs short, cut in this order (they move to the first update, not lost): 18 calendar (brief works without it); then 19 learning drops (Instinct keeps sending them meanwhile, #9); then shrink 14 to 2 or 3 fixed weekly wins; then shrink 17 to JSON export only, with import next.
 
 Note: the two-week target in #4 also covers Design, architecture and the real-use test (3c). Assumption: B's build fits only if Design stays small (shared components, a few screens).
 
