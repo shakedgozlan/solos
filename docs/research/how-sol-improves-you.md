@@ -62,5 +62,5 @@ Build cost: M1 is one table and a few prompt lines; M2 is one file; M3-M7 are wo
 - **Shaked keeps adding** (the main risk): M7, and Sol Lab changes one thing per week.
 
 ## 6. Open, for the real-use test (3c)
-- Is Saturday daytime a no-notification rest day? Fits the weekly rhythm; Shaked to confirm.
+- Saturday daytime: not a rest day (#33).
 - When Sol Lab starts: after 2 or after 4 weeks of use.
