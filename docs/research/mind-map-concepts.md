@@ -75,8 +75,9 @@ Built for economics, politics and philosophy.
 
 Build order (Assumption, to refine in Definition after the MVP): first a plain list of topics with strength and one daily batch from YouTube channel feeds, podcasts and RSS; then the voice "what stuck?"; the visual map last, once there is real data to draw.
 
+**Decided:** A, Living map (Shaked, 2026-11-20, decisions.md #29). The map is also the memory of Sol's private agent: every "what stuck?" answer teaches it what keeps Shaked curious. Data stays in Sol's own database. Assumption to check before building: the AI service Sol uses does not train on Sol's data by default.
+
 ## 5. Open questions for Shaked
-- Which concept (A, B or C)?
 - Starting topics: Claude suggests a 5-minute voice brain-dump to seed the map.
 - How long should a daily batch take: 10, 20 or 30 minutes?
 
