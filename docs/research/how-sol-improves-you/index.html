@@ -109,11 +109,10 @@ footer{font-size:.8rem;color:var(--muted)}
 
   <section class="ask" aria-labelledby="yours">
     <span class="eyebrow" id="yours">Your call</span>
-    <h2>Three things only you can decide</h2>
+    <h2>One thing left to decide</h2>
     <p class="muted">Tell me what you think first, by voice note in the thread. No need to pick from a list.</p>
     <ol>
-      <li>Does "one in, one out" feel right to you, or too strict?</li>
-      <li>How many active goals at once feels calm: 3, 4 or 5?</li>
+      <li><s>One in, one out</s> Decided: directions without limit, 3 to 4 active goals.</li>
       <li>Should Saturday daytime be quiet, with no notifications until the evening reflection?</li>
     </ol>
   </section>
@@ -130,7 +129,7 @@ const DATA={
   {id:'M4',t:'An honest Saturday summary',w:'Weekly review',ev:'moderate',d:'Sol quotes your own entries and names one thing that did not go well, kindly. AI models tend to flatter people; this rule keeps the review true.',s:'Sycophancy in AI models',u:'https://arxiv.org/abs/2310.13548'},
   {id:'M5',t:'"What stuck?" in your own words',w:'Learning skills',ev:'strong',d:'You say it, Sol never writes the summary for you. Things you put into your own words are remembered better than things you only read.',s:'Generation effect, Bertsch 2007',u:'https://pubmed.ncbi.nlm.nih.gov/17645161/'},
   {id:'M6',t:'Saturday as a short fixed ritual',w:'Weekly review',ev:'weak',d:'Same prompts, same order, about five minutes, a clear ending. It should feel like closing the week, not like a performance review.',s:'Rituals, Norton and Gino; GTD weekly review (practice only)'},
-  {id:'M7',t:'One in, one out',w:'Goals + Sol Lab',ev:'weak',d:'Only one Sol Lab change at a time. Adding a new active goal asks which one steps back. Assumption: the cap is 3 to 5 goals, set during the real-use test.',s:'Goal conflict research (correlational) and your own history with the earlier app'}
+  {id:'M7',t:'One in, one out, on two levels',w:'Goals + Sol Lab · approved by you',ev:'weak',d:'Directions (where you see yourself in 5, 10, 20 years): no limit, no daily load, seen on Saturday and when you pick your next goal. Active goals (coming weeks): 3 to 4 at most, each with a weekly step and linked to a direction. A new one starts when one finishes or goes back to waiting. Nothing is deleted, and you never run out of work.',s:'Goal conflict research (correlational) and your own history with the earlier app'}
  ]},
  lab:{label:'Sol Lab',intro:'The weekly improvement loop. Starts after 2 to 4 weeks of real use, when there is data to learn from.',items:[
   {id:'L1',t:'Experiment ledger',w:'Sol Lab',ev:'moderate',d:'Each suggestion is a one-week experiment. On Saturday you say keep or drop. Sol writes one lesson and uses it for the next suggestion. Your answer is the signal, never Sol grading itself.',s:'Reflexion, Shinn et al. 2023',u:'https://arxiv.org/abs/2303.11366'},
