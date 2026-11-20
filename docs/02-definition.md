@@ -64,7 +64,7 @@ Built in three steps (#25; Assumption: Claude's estimate): week 1, features 1-10
 - Cross-area insights: needs months of data.
 
 ## Open
-- 2b: persona, jobs to be done, success metrics. 2c: user stories for every Must.
+- 2b: who Sol is for, jobs and success measures: [02b-who-and-success.md](02b-who-and-success.md) (draft). 2c: user stories for every Must.
 - For the real-use test (3c): weekly or monthly budget, notification count, rest day, savings pledge.
 
 ## Gate: ready for Design when
