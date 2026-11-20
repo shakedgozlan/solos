@@ -1,17 +1,17 @@
 # Status
-Updated: 2026-11-20 · by: Researcher (Opus 5.5)
+Updated: 2026-11-20 · by: Product strategist 2c (Opus 5.5)
 
-Phase: 2 Definition
-Gate: Discovery approved (decisions.md #20)
+Phase: 3 Design
+Gate: Definition approved (decisions.md #31)
 
 Done since last update:
-- 2b approved (#26, #27): docs/02b-who-and-success.md
-- Jake's Brain review: ideas in docs/ideas.md; connector later but server built connector-ready (#28)
-- Mind map (post-MVP): concept A chosen (#29), docs/research/mind-map-concepts.md
-- Research: how Sol keeps improving you (docs/research/how-sol-improves-you.md), awaiting Shaked's view; core loop unchanged
+- MVP reshaped as Sol OS (#30): https://claude.ai/artifact/AEVFv9VNXSb3zVqQt7hrAA
+- 2c approved (#31): docs/02c-user-stories.md, 19 Musts with "done when" lines, research M1-M6 folded in
+- Research: how Sol keeps improving you (docs/research/how-sol-improves-you.md); two-level goals proposed (#32), awaiting Shaked
 
 Next step (one task, one owner):
-- Definition 2c: user stories with acceptance criteria for every Must
+- Design 3-0: research Claude skills and web resources that raise UI/UX/layout quality, then Atomic Design (tokens, atoms) before screens
 
 Blocked on / waiting for Shaked:
+- M7 "one in, one out" (research thread, PR #11)
 - Real ElevenLabs sk_ key before Phase 4 (saved value is the key ID)
