@@ -7,7 +7,7 @@ Gate: Definition approved (decisions.md #31)
 Done since last update:
 - MVP reshaped as Sol OS (#30): https://claude.ai/artifact/AEVFv9VNXSb3zVqQt7hrAA
 - 2c approved (#31): docs/02c-user-stories.md, 19 Musts with "done when" lines, research M1-M6 folded in
-- Research: how Sol keeps improving you (docs/research/how-sol-improves-you.md); two-level goals proposed (#32), awaiting Shaked
+- Research: how Sol keeps improving you (docs/research/how-sol-improves-you.md); two-level goals (#32) and Saturday not quiet (#33) approved
 
 Next step (one task, one owner):
 - Design 3-0: research Claude skills and web resources that raise UI/UX/layout quality, then Atomic Design (tokens, atoms) before screens

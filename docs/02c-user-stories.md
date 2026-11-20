@@ -89,6 +89,8 @@ When I come back after a gap or a slip, I want a calm restart, so that I don't a
 **5 · Goals** (J5)
 When I want to improve something, I want to add a goal by voice or text, so that it becomes a clear next step.
 - A goal can be about anything: health, learning, money, quitting smoking (#30).
+- Goals have two levels (#32, M7): **directions** (where I see myself in 5, 10, 20 years; no limit, never on Today, shown on Saturday and when I pick a next goal) and **active goals** (3 to 4 at most, each linked to a direction).
+- When I add a fifth active goal, Sol asks once which one finishes or goes back to waiting; nothing is deleted, and I can skip (P19).
 - Each goal has a long target, this week's step and one if-then plan; Sol asks for the if-then plan once, and I can skip it (P1, P19).
 - Each goal is marked "today" or "growing"; only "today" goals appear on Today (#24).
 - A new goal starts with honest credit for what I have already done, if I tell Sol (P18).
@@ -146,4 +148,4 @@ When I am already talking to the Claude app, I want it to read and write Sol, so
 
 ## Gate check
 - Every Must has a story: 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16, 19, 23, 25, 26, 27, 28, 29. Not here: 6 (dropped), 7, 8, 9, 17 (Later); 18 and 24 (Shoulds).
-- M7 (one in, one out) waits for Shaked's answer.
+- M7 (one in, one out) approved as two-level goals (#32), in story 5.
