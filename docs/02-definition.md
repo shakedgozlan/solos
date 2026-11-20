@@ -1,7 +1,7 @@
 # 02 · Definition (MVP)
 > Summary: step 2a, the MVP feature list. **Recommended scope: B, "Voice loop + daily rhythm"**: one voice note becomes confirmed entries across smoking, food and weight, mindfulness, reading and learning, and money; Sol shows them as progress that never resets, opens each day with a brief that includes the calendar, reaches out with a morning push, and closes each week with a five-minute voice review. Persona, success metrics and user stories follow in 2b and 2c, after Shaked picks a scope.
 
-Status: draft for Shaked's decision · Writer: Product strategist, Opus 5.5 · Reviewer pass: Opus 5.5 (high), 2026-11-20 · Date: 2026-11-20
+Status: scope B approved by Shaked, 2026-11-20 (decisions.md #22); learning drops (19) added after, pending Shaked's OK · Writer: Product strategist, Opus 5.5 · Reviewer pass: Opus 5.5 (high), 2026-11-20 · Date: 2026-11-20
 Builds on: [00-brief.md](00-brief.md), [01-discovery.md](01-discovery.md), [decisions.md](decisions.md), principles P1-P17 in [1b](research/1b-behavior-science.md#2-design-principles-for-sol). "#n" means line n in decisions.md.
 
 ## MVP in one sentence
@@ -56,7 +56,7 @@ Note: the two-week target in #4 also covers Design, architecture and the real-us
 - Sol's own AI assistant for tasks, reminders and calendar writing (v2, #9). Instinct AI keeps that job, including tasks sorted by importance.
 - Any bank, card or account connection, ever (#11).
 - Apple Health (needs a real app, #21), Notion.
-- **Google Calendar: proposed to move after the MVP, needs Shaked's OK** (the brief asked for it; Shaked lives in iCloud today).
+- Google Calendar: after the MVP (#22).
 - Mind and emotions (beyond mindfulness minutes) and Relationships areas (#10).
 - Streaks, points, leaderboards, calorie or page counting. Investments.
 - Cross-area insights ("you spend more on days you smoke"): needs months of data.
@@ -67,5 +67,5 @@ Note: the two-week target in #4 also covers Design, architecture and the real-us
 - Left to the real-use test (3c): weekly or monthly budget, notification count, rest day, savings pledge.
 
 ## Gate: ready for Design when
-- [ ] Shaked approved the MVP scope and non-goals (this step, 2a)
+- [x] Shaked approved the MVP scope and non-goals (this step, 2a; #22)
 - [ ] Every Must feature has a user story with acceptance criteria (2c)
