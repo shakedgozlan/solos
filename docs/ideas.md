@@ -12,6 +12,8 @@ Source: [github.com/jake17007/jakes-brain](https://github.com/jake17007/jakes-br
 | Each area is a small self-contained module on one shared kit of components | `web/apps/<id>/`, `web/kit.js` | All | S | Same lesson as the earlier attempt: change once, not page by page. Architect + Design system |
 | "Usuals": the same meal or expense logged with one tap, same numbers every time | Food app, `food_search` in the connector | Money, Food | S | Good fit for eating out vs cooking. Candidate for the read-back card (3) |
 | Change Sol from the phone: ask Claude Code, it pushes, the app updates itself in about a minute | README "Making changes" | Process | S | For Phase 5. Free hosting with auto-deploy gives the same result without a home PC |
+| Chosen learning feed: newest videos only from YouTube channels Shaked picks for their skills, instead of an endless feed | JakeTube app; Shaked's reaction, 2026-11-20 | Learning | M | YouTube channel feeds are free to read. Instagram and TikTok offer no way to show a filtered feed, so they can't be included. Later, not MVP |
+| Share one goal with one friend (an accountability partner) | Video's "brains with an API" idea, made small | Goals | M | Accountability has research support; a full friend-to-friend data link does not exist in the repo, it's only in the video. Later |
 | Goals with milestones or a measurable start, target and check-ins | `server/apps/goals.js` | Goals | S | Already covered by feature 5; useful as a data-model reference |
 
 Rejected or parked (one line each, so the scout doesn't suggest them again):
