@@ -1,0 +1,227 @@
+<title>What Sol Keeps</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: one calm column. A plain-words flow strip, then a tap list of every thing Sol could keep (Now / Later / No), then three either-or choices and a voice box. */
+:root{
+  --bg:#F2F2F0; --surface:#FFFFFF; --ink:#1D1E20; --muted:#666A70; --line:#DCDDDA;
+  --accent:#C9472E; --accent-ink:#FFFFFF; --accent-soft:#F6E2DC; --later:#5B5F8C; --later-soft:#E4E5F0;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#151617; --surface:#202123; --ink:#EEEEEC; --muted:#A2A5A9; --line:#34363A;
+  --accent:#EE6D52; --accent-ink:#1B0D09; --accent-soft:#3A2420; --later:#A9ADE0; --later-soft:#2A2B3D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#151617; --surface:#202123; --ink:#EEEEEC; --muted:#A2A5A9; --line:#34363A;
+  --accent:#EE6D52; --accent-ink:#1B0D09; --accent-soft:#3A2420; --later:#A9ADE0; --later-soft:#2A2B3D; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:36px}
+h1{font-family:var(--display);font-size:2.1rem;line-height:1.1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-family:var(--display);font-size:1.25rem;margin:0 0 6px;text-wrap:balance}
+h3{font-family:var(--display);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:8px 0 0}
+p{margin:0}
+section{display:grid;gap:12px}
+.muted{color:var(--muted)} .small{font-size:.86rem}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 13px}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.frame{display:grid;gap:6px;border-inline-start:3px solid var(--accent);padding-inline-start:14px}
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:8px}
+.quote q{font-size:1.02rem}
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+.flow li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:4px;align-content:start;min-width:0}
+.flow .w{font-family:var(--display);font-weight:600;font-size:1.02rem}
+.flow .d{font-size:.84rem;color:var(--muted)}
+@media (max-width:600px){.flow{grid-template-columns:1fr 1fr}}
+/* items */
+.items{display:grid;gap:8px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center}
+.item .t{font-weight:600}
+.item .d{font-size:.86rem;color:var(--muted);grid-column:1}
+.item .s{font-size:.78rem;color:var(--muted);grid-column:1}
+.seg{display:flex;gap:4px;grid-row:1 / span 3;grid-column:2}
+.seg button{padding:6px 10px;font-size:.86rem;border-radius:8px}
+.seg button[aria-pressed="true"][data-v="now"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.seg button[aria-pressed="true"][data-v="later"]{background:var(--later-soft);color:var(--later);border-color:var(--later)}
+.seg button[aria-pressed="true"][data-v="no"]{background:var(--line);color:var(--ink);border-color:var(--muted)}
+@media (max-width:480px){.item{grid-template-columns:1fr}.seg{grid-row:auto;grid-column:1}}
+.tally{font-size:.86rem;color:var(--muted)}
+.warn{font-size:.84rem;color:var(--accent);grid-column:1}
+/* choices */
+.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px}
+.q .h{font-family:var(--display);font-weight:600;font-size:1.05rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:520px){.opts{grid-template-columns:1fr}}
+.opt{text-align:start;display:grid;gap:4px;padding:12px;width:100%}
+.opt[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.opt .ot{font-weight:600}
+.opt .os{font-size:.85rem;color:var(--muted)}
+.tag{justify-self:start;font-size:.74rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 7px}
+.ev{font-size:.8rem;color:var(--muted)}
+textarea{width:100%;min-height:96px;font:inherit;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:10px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<main class="wrap">
+  <header style="display:grid;gap:14px">
+    <p class="small muted">Sol · Design step 3a · Saturday 21 November</p>
+    <h1>What Sol keeps for you</h1>
+    <div class="frame">
+      <p><b>Where we are:</b> the first design step, before any screen.</p>
+      <p><b>What it decides:</b> every kind of thing Sol holds, and how they link.</p>
+      <p><b>What you decide:</b> tap Now, Later or No on each thing, then three small choices. About 10 minutes.</p>
+    </div>
+    <div class="row"><button id="listen" class="primary" type="button" hidden>Listen (1 min)</button><span id="saveStatus" class="small muted">Loading…</span></div>
+  </header>
+
+  <section>
+    <h2>What you said</h2>
+    <div class="quote">
+      <q>Tasks, goals and what I learn. But also my schedule, and my algorithm, this mind map. Keep the information I grow through, keep it safe, offer it back to me, put it into an algorithm.</q>
+      <p class="small muted">Your voice note, shortened. You also said there are more things you can't think of yet. The list below is there to jog that.</p>
+    </div>
+    <p><b>What I took from it:</b> your "algorithm" is a thing Sol holds too. Not only your tasks and notes, but <b>Sol's picture of you</b>: what works for you, your patterns, how you talk. Sol keeps it, uses it to offer things back at the right moment, and you can see and correct it. I've added it to the list as "About you".</p>
+  </section>
+
+  <section>
+    <h2>How it all fits</h2>
+    <ol class="flow">
+      <li><span class="w">You talk</span><span class="d">A note: voice or pasted text, kept as it was.</span></li>
+      <li><span class="w">Sol sorts</span><span class="d">Turns it into moments: minutes, mood, progress, a task done.</span></li>
+      <li><span class="w">Things grow</span><span class="d">Each moment adds to something lasting: a goal, a topic, a task.</span></li>
+      <li><span class="w">Sol gives back</span><span class="d">Today, recall, the map, Saturday's review, About you.</span></li>
+    </ol>
+    <p class="small muted">Screens are only windows onto these things. That's why one note can update several apps at once, and why changing one thing changes it everywhere.</p>
+  </section>
+
+  <section>
+    <h2>Everything Sol could keep</h2>
+    <p class="muted small"><b>Now</b> = in the first version. <b>Later</b> = kept for after it works. <b>No</b> = not for Sol. My suggestion is under each one; tap what feels right to you.</p>
+    <p id="tally" class="tally"></p>
+    <div id="items" class="items"></div>
+  </section>
+
+  <section>
+    <h2>Three small choices</h2>
+    <div id="choices" style="display:grid;gap:10px"></div>
+  </section>
+
+  <section>
+    <h2>Anything else?</h2>
+    <p class="muted small">Something missing, a name that sounds wrong, or a thought. Speak or type.</p>
+    <textarea id="note" aria-label="Your note"></textarea>
+    <div class="row"><button id="mic" type="button" hidden>Speak your answer</button></div>
+    <p class="ev">Method: object mapping (Sophia Prater's ORCA: things, links, actions, details), widely taught design practice, no controlled studies. Opinion-level evidence.</p>
+  </section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const GROUPS=[
+ {h:'Already in your plan',items:[
+  ['tasks','Tasks','Things to do once, with or without a reminder time.','Now (planned)'],
+  ['goals','Goals and directions','3-4 active goals with this week\'s step, under your 5-20 year directions.','Now (planned)'],
+  ['topics','What you learn','Topics with minutes, notes and "what stuck" that comes back for recall.','Now (planned)'],
+  ['map','Your map','The Living map: every topic you grow in, growing as you log.','Now (planned)'],
+  ['schedule','Your schedule','Classes and fixed events, read from your iCloud calendar. Sol never writes to it.','Now, if time allows (it\'s a "should")'],
+  ['calm','Calm minutes','"10 minutes of calm", adding up per week.','Now (planned)'],
+  ['mood','Mood','"Tired, stressed" from any note, seen on Saturday.','Now (planned)'],
+  ['review','Saturday review and wins','Plan against what happened, 1-3 real wins, your answers.','Now (planned)'],
+  ['usuals','Usuals','One-tap repeats of things you log often.','Now (planned)']]},
+ {h:'From your words',items:[
+  ['about','About you','Sol\'s picture of you: what works for you, your patterns, the words you use, your fixes. You can read it and correct it.','Now, small: built from your fixes and Saturday answers'],
+  ['offers','Things Sol offers back','A topic to recall, an old note that fits today, a smaller step when a week was heavy.','Now, small: recall and smaller steps are planned']]},
+ {h:'You might also want',items:[
+  ['ideas','Ideas','Thoughts you want to keep but not act on yet.','Later, or Now as a topic note',true],
+  ['questions','Questions','Things you\'re curious about. They become new topics on the map.','Later (planned with the map)'],
+  ['saved','Things you save','Articles, videos, links, posts you want to come back to.','Later'],
+  ['books','Books','What you read and your chapter a day.','Later (moved out in #30)',true],
+  ['money','Money','Spending, budget and savings goals, only from what you say.','Later (moved out in #30)',true],
+  ['food','Meals and weight','Home meals, eating out, weight.','Later (moved out in #30)',true],
+  ['body','Workouts and sleep','From Garmin: steps, sleep, workouts.','Later'],
+  ['projects','Projects','Something bigger than a task, smaller than a goal: a school project, a portfolio piece.','Later; ask me if it hurts now'],
+  ['people','People','Who to call back, what someone said, birthdays.','Later'],
+  ['decisions','Decisions','Big choices you made and why, to look back on.','Later'],
+  ['journal','Journal','Longer reflections, beyond Saturday\'s one question.','Later']]}
+];
+const SCOPE_KEYS=new Set(['books','money','food']);
+const CHOICES=[
+ {id:'q1',h:'Something you practise (Figma) and something you read about (sleep science): one kind of thing or two?',
+  o:[['one','One: "topic"','Minutes, recall and the map all hang on one thing. Fewer names everywhere.',true],['two','Two: "skill" and "topic"','A skill counts minutes; a topic holds knowledge.']],
+  ev:'Object mapping\'s rule: one thing, one name. Two near-identical things confuse every screen (Opinion, widely taught).'},
+ {id:'q2',h:'Your original voice note: where do you find it again?',
+  o:[['attached','On each thing it made','"From your note", tap to replay. No extra list.',true],['list','Its own list of notes','One place to scroll everything you said.']],
+  ev:'Audio is never lost either way (#15). A full history screen is already Later (#30), so a notes list would be a new screen now.'},
+ {id:'q3',h:'A goal\'s weekly step ("cook at home 3 times"): how does it show on Today?',
+  o:[['goal','As part of the goal','You log progress; the count only goes up.',true],['task','As a task you tick off','Feels like a to-do, but resets each week.']],
+  ev:'Counts that only go up keep people going after a slip; resets push people to quit (Moderate, research in 1b, principle P2).'}
+];
+let state={items:{},choices:{},note:''},local={items:{},choices:{}},ref=null,ready=false,timer;
+function merge(remote,loc){const r=Object.assign({},remote||{});for(const k in loc){if(loc[k]===null)delete r[k];else r[k]=loc[k];}return r;}
+function btn(txt,cls){const b=document.createElement('button');b.type='button';b.textContent=txt;if(cls)b.className=cls;return b;}
+function renderItems(){
+  const box=$('items');box.textContent='';
+  GROUPS.forEach(g=>{const h=document.createElement('h3');h.textContent=g.h;box.appendChild(h);
+    g.items.forEach(([k,t,d,s])=>{const el=document.createElement('div');el.className='item';
+      const tt=document.createElement('span');tt.className='t';tt.textContent=t;
+      const dd=document.createElement('span');dd.className='d';dd.textContent=d;
+      const ss=document.createElement('span');ss.className='s';ss.textContent='I suggest: '+s;
+      const seg=document.createElement('div');seg.className='seg';seg.setAttribute('role','group');seg.setAttribute('aria-label',t);
+      [['now','Now'],['later','Later'],['no','No']].forEach(([v,l])=>{const b=btn(l);b.dataset.v=v;b.setAttribute('aria-pressed',state.items[k]===v?'true':'false');
+        b.onclick=()=>{const nv=state.items[k]===v?undefined:v;state.items[k]=nv;local.items[k]=nv===undefined?null:nv;renderItems();save();};seg.appendChild(b);});
+      el.append(tt,seg,dd,ss);
+      if(SCOPE_KEYS.has(k)&&state.items[k]==='now'){const w=document.createElement('span');w.className='warn';w.textContent='This was moved to Later in #30. Now would grow the first version; I\'d bring it back as its own decision.';el.appendChild(w);}
+      box.appendChild(el);});});
+  const v=Object.values(state.items).filter(Boolean),all=GROUPS.reduce((n,g)=>n+g.items.length,0);
+  $('tally').textContent=v.length?(v.length+' of '+all+' tapped · '+v.filter(x=>x==='now').length+' Now, '+v.filter(x=>x==='later').length+' Later, '+v.filter(x=>x==='no').length+' No'):'Nothing tapped yet.';
+}
+function renderChoices(){
+  const box=$('choices');box.textContent='';
+  CHOICES.forEach(c=>{const q=document.createElement('div');q.className='q';
+    const h=document.createElement('p');h.className='h';h.textContent=c.h;
+    const os=document.createElement('div');os.className='opts';
+    c.o.forEach(([v,t,s,rec])=>{const b=btn('','opt');b.setAttribute('aria-pressed',state.choices[c.id]===v?'true':'false');
+      if(rec){const g=document.createElement('span');g.className='tag';g.textContent='Recommended';b.appendChild(g);}
+      const a=document.createElement('span');a.className='ot';a.textContent=t;const d=document.createElement('span');d.className='os';d.textContent=s;b.append(a,d);
+      b.onclick=()=>{const nv=state.choices[c.id]===v?undefined:v;state.choices[c.id]=nv;local.choices[c.id]=nv===undefined?null:nv;renderChoices();save();};os.appendChild(b);});
+    const e=document.createElement('p');e.className='ev';e.textContent='Evidence: '+c.ev;
+    q.append(h,os,e);box.appendChild(q);});
+}
+function clean(o){const r={};for(const k in o)if(o[k])r[k]=o[k];return r;}
+function save(){if(!ref){$('saveStatus').textContent='Saving isn\'t available here; your taps stay on this screen.';return;}
+  $('saveStatus').textContent='Saving…';clearTimeout(timer);
+  timer=setTimeout(()=>{ref.set({items:clean(state.items),choices:clean(state.choices),note:state.note,updatedAt:new Date().toISOString()})
+    .then(()=>{$('saveStatus').textContent='Saved. Claude can read it.'}).catch(()=>{$('saveStatus').textContent='Couldn\'t save. Try another tap.'})},700);}
+let noteTouched=false;
+$('note').addEventListener('input',()=>{noteTouched=true;state.note=$('note').value;save();});
+renderItems();renderChoices();
+(async()=>{
+  if(!window.claude||!claude.use){$('saveStatus').textContent='Open this page in Claude to save your taps.';return;}
+  const t10=setTimeout(()=>{if(!ready)$('saveStatus').textContent='Still loading…'},10000);
+  let db=null;try{db=await claude.use('db');}catch(e){}
+  if(!db){clearTimeout(t10);$('saveStatus').textContent='Sign in to save your taps.';}
+  else{ref=db.doc('picks/object-map');
+    ref.onSnapshot(s=>{clearTimeout(t10);ready=true;if(s.exists){const d=s.data()||{};state.items=merge(d.items,local.items);state.choices=merge(d.choices,local.choices);
+        if(!noteTouched&&document.activeElement!==$('note')){state.note=d.note||'';$('note').value=state.note;}}
+      $('saveStatus').textContent=s.exists?'Your saved taps are loaded.':'Nothing saved yet. Your first tap saves.';renderItems();renderChoices();},
+      ()=>{clearTimeout(t10);$('saveStatus').textContent='Couldn\'t load saved taps. You can still tap.'});}
+  try{const t=await claude.use('tts');if(t){const b=$('listen');b.hidden=false;
+    const lines=[
+     'This is design step 3 A: what Sol keeps for you. Before any screen, we decide every kind of thing Sol holds and how they link.',
+     'You said: tasks, goals and what you learn, and also your schedule, and your algorithm, the mind map. Information you grow through, kept safe and offered back to you.',
+     'I took one new thing from that. Your algorithm is something Sol holds too: Sol\'s picture of you. What works for you, your patterns, the words you use. Sol uses it to offer things back at the right moment, and you can read it and correct it. It\'s on the list as About you.',
+     'It all fits in four steps. You talk. Sol sorts the note into moments. Each moment adds to something lasting, like a goal or a topic. And Sol gives back, on Today, in recall, on the map and on Saturday.',
+     'Then there is a list of everything Sol could keep. Tap now, later, or no on each. Money, food and books were already moved to later, so if you tap now on those, I will bring it back as its own decision.',
+     'Last, three small either-or choices, each with my recommendation. And a box at the end, if anything is missing.'];
+    t.onState(({state:st})=>{b.textContent=st==='speaking'?'Stop':'Listen (1 min)'});
+    b.onclick=()=>{if(b.textContent==='Stop'){t.stop();return;}t.speak(lines.map(x=>({text:x})),{language:'en'}).catch(()=>{});};}}catch(e){}
+  try{const d=await claude.use('dictation');if(d){const m=$('mic');m.hidden=false;let on=false;
+    d.onFinal(({text})=>{noteTouched=true;state.note=(state.note?state.note+' ':'')+text;$('note').value=state.note;save();});
+    d.onState(({state:st})=>{on=st==='listening'||st==='starting';m.textContent=on?'Stop':'Speak your answer';});
+    m.onclick=()=>{if(on){d.stop().catch(()=>{});return;}d.start().catch(e=>{if(e&&e.code==='not_granted')m.hidden=true;});};}}catch(e){}
+})();
+</script>

@@ -1,15 +1,15 @@
 # Status
-Updated: 2026-11-21 · by: Researcher 3-0 (Opus 5.5)
+Updated: 2026-11-21 · by: Designer 3a (Opus 5.5 high)
 
-Phase: 3 Design (UX first, UI last; Shaked, 2026-11-20)
+Phase: 3 Design (UX first, UI last; #34)
 Gate: Definition approved (decisions.md #31)
 
 Done since last update:
-- UX process decided (#34): grey core paths in code, Figma mirror, UI after
-- 3-0 research: UX process for Sol (docs/research/3-0-ux-process.md), page: https://claude.ai/artifact/Ge12TwqgijxDsnV6NL2dWu
+- 3a object map done: docs/03a-object-map.md, decision #35 (Shaked's taps on https://claude.ai/artifact/KLoGvAk2n68QnELgYd3tSF)
+- MVP adds ideas, people, decisions, About you, offers back; calm and mood move to Later; skills and topics separate
 
 Next step (one task, one owner):
-- 3a object map (Designer, Opus 5.5 high), per docs/research/3-0-ux-process.md and #34
+- 3b places: screen list with every state, two ways to move around (Designer, Opus 5.5 high)
 
 Blocked on / waiting for Shaked:
-- Real ElevenLabs sk_ key before Phase 4 (saved value is the key ID)
+- Real ElevenLabs sk_ key before Phase 4
