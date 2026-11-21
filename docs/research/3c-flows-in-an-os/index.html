@@ -1,0 +1,196 @@
+<title>Sol's Flows</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: one calm column. Your instinct, five findings, one picture, three options, two small ideas. Every item has its own box to talk. */
+:root{
+  --bg:#F2F2F0; --surface:#FFFFFF; --ink:#1D1E20; --muted:#666A70; --line:#DCDDDA; --grey:#E6E6E3; --grey2:#D2D3CF;
+  --accent:#C9472E; --accent-ink:#FFFFFF; --accent-soft:#F6E2DC; --later:#5B5F8C; --later-soft:#E4E5F0;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#151617; --surface:#202123; --ink:#EEEEEC; --muted:#A2A5A9; --line:#34363A; --grey:#2B2C2F; --grey2:#3A3C40;
+  --accent:#EE6D52; --accent-ink:#1B0D09; --accent-soft:#3A2420; --later:#A9ADE0; --later-soft:#2A2B3D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#151617; --surface:#202123; --ink:#EEEEEC; --muted:#A2A5A9; --line:#34363A; --grey:#2B2C2F; --grey2:#3A3C40;
+  --accent:#EE6D52; --accent-ink:#1B0D09; --accent-soft:#3A2420; --later:#A9ADE0; --later-soft:#2A2B3D; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:36px}
+h1{font-family:var(--display);font-size:2.1rem;line-height:1.1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-family:var(--display);font-size:1.25rem;margin:0 0 4px;text-wrap:balance}
+p{margin:0}
+section{display:grid;gap:12px;min-width:0}
+.muted{color:var(--muted)} .small{font-size:.86rem}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 13px;touch-action:manipulation}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.frame{display:grid;gap:6px;border-inline-start:3px solid var(--accent);padding-inline-start:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:8px;min-width:0}
+.card .t{font-family:var(--display);font-weight:600;font-size:1.08rem}
+.card .ev{font-size:.8rem;color:var(--muted)}
+.card .sol{font-size:.88rem;background:var(--later-soft);border-radius:10px;padding:8px 10px}
+.tag{justify-self:start;font-size:.74rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 7px}
+.talk{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:start}
+textarea{width:100%;min-height:44px;font:inherit;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 10px;resize:vertical}
+.mic{padding:8px 10px;font-size:.84rem;white-space:nowrap}
+.mic.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.pick{font-weight:600;justify-self:start}
+.pick[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.opt[data-picked="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.opt ul{margin:0;padding-inline-start:18px;display:grid;gap:3px;font-size:.9rem}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{padding:6px 11px;font-size:.86rem;border-radius:8px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:8px}
+.fig svg{width:100%;height:auto;display:block}
+.fig text{font-family:var(--body);fill:var(--ink)}
+.fig .m{fill:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<main class="wrap">
+  <header style="display:grid;gap:14px">
+    <p class="small muted">Sol · Research before Design step 3c · for tomorrow, no rush</p>
+    <h1>How "flows" work in an app built like a phone</h1>
+    <div class="frame">
+      <p><b>Where we are:</b> 3a things and 3b places are done. 3c was going to be six core flows. You felt an operating system has no single flow, so I researched it first.</p>
+      <p><b>What this decides:</b> what step 3c makes.</p>
+      <p><b>What you decide:</b> one option (A, B or C), or a mix. Talk or type in any box. Everything saves on its own.</p>
+    </div>
+    <div class="row"><button id="listen" class="primary" type="button" hidden>Listen (1 min)</button><span id="saveStatus" class="small muted">Loading…</span></div>
+  </header>
+
+  <section>
+    <h2>Your instinct was right</h2>
+    <div class="card">
+      <p>A phone has no single flow. It has <b>a few actions that work the same everywhere</b>, <b>shared things</b> (our 3a map), <b>rhythms</b> (the moment, the day, the week) and <b>places that stay put</b>. A way of working is those four together. Long step-by-step flows are only needed for the few real sequences.</p>
+      <div id="t_instinct"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What the research says</h2>
+    <p class="small muted">Strong = wide research or long practice. Moderate = a few studies or one strong authority. Opinion = practitioners. Sources were read through search results, not opened in full.</p>
+    <div id="findings" style="display:grid;gap:10px"></div>
+  </section>
+
+  <section>
+    <h2>The picture: three loops around one inbox</h2>
+    <div class="fig" role="img" aria-label="Three rings around one inbox: the moment inside, the day around it, the week outside.">
+      <svg viewBox="0 0 640 400" aria-hidden="true">
+        <circle cx="320" cy="200" r="185" fill="var(--later-soft)" stroke="var(--line)"/>
+        <circle cx="320" cy="200" r="128" fill="var(--grey)" stroke="var(--line)"/>
+        <circle cx="320" cy="200" r="72" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="320" y="194" text-anchor="middle" font-weight="600" font-size="15">One inbox</text>
+        <text x="320" y="214" text-anchor="middle" class="m" font-size="12">every note you say</text>
+        <text x="320" y="96" text-anchor="middle" font-weight="600" font-size="14">The moment</text>
+        <text x="320" y="113" text-anchor="middle" class="m" font-size="11">say it · Sol sorts · read-back · lands</text>
+        <text x="320" y="40" text-anchor="middle" font-weight="600" font-size="14">The day</text>
+        <text x="320" y="57" text-anchor="middle" class="m" font-size="11">morning plan · doing · close</text>
+        <text x="320" y="356" text-anchor="middle" font-weight="600" font-size="14">The week</text>
+        <text x="320" y="373" text-anchor="middle" class="m" font-size="11">Saturday: clear · review · new ideas</text>
+      </svg>
+      <p class="small muted">In option A this is drawn over Sol's real places: Home and the eight apps, so you see where each step of each loop happens.</p>
+      <div id="t_picture"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What 3c could make</h2>
+    <div id="options" style="display:grid;gap:10px"></div>
+  </section>
+
+  <section>
+    <h2>Two small ideas the research raised</h2>
+    <p class="small muted">Not new scope. Pick where each goes.</p>
+    <div id="ideas" style="display:grid;gap:10px"></div>
+  </section>
+
+  <section>
+    <h2>Anything else</h2>
+    <div class="card"><div id="t_note"></div></div>
+  </section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+const FINDINGS=[
+ {k:'verbs',t:'A few actions work the same in every app',d:'Apple and Android build their systems from actions ("send this", "record") and things (a note, a task). Apps are containers around them. Jef Raskin, who started the Macintosh project, warned that when one button does different things in different places, people make mistakes.',sol:'For Sol: record, find, Home, back to the last app, undo and "turn into" (an idea becomes a task) behave the same in all eight apps.',ev:'Moderate: Apple and Android docs. Raskin: Opinion, long-cited.'},
+ {k:'loops',t:'A way of working is loops at three speeds',d:'GTD (a well-known method) runs capture, sort, review around one trusted inbox, held together by a weekly review. Things and Todoist clear one inbox daily. Sunsama gives the day two bookends: a morning plan and an evening close where each unfinished task is moved or dropped.',sol:'For Sol: the moment, the day and the week, all around the one entry list we already have.',ev:'GTD: Strong, long practice. Sunsama and Things: Moderate, their own guides.'},
+ {k:'upkeep',t:'Personal systems die from upkeep',d:'Notion "life OS" setups are dropped when maintaining them becomes the hobby. Tools that last keep a few fixed types and let the tool do the sorting.',sol:'For Sol: this backs "you talk, it sorts". You never design the structure.',ev:'Opinion: blogs and reviews. No hard numbers found.'},
+ {k:'methods',t:'UX teams don\'t draw one flow for systems like this',d:'Step-by-step flows suit one short task. For products you enter from anywhere, teams use core loops, "When I..." moments, day-in-the-life stories and a grid of things by actions.',sol:'For Sol: loops plus moments plus a grid, and short step lists only for real sequences (first-time setup, fixing a read-back, Saturday).',ev:'NN/g map types: Strong. Loops and "When I..." moments: Moderate.'},
+ {k:'spatial',t:'"Spatial" works as places that never move',d:'People find things by where they are, once the layout stays put (Microsoft\'s Data Mountain, 1998; CommandMaps, 2012). Moving items to "helpful" new spots hurts; lighting them up in place helps. Endless zoomable canvases have weak evidence and get messy.',sol:'For Sol: Home never reorders itself. Numbers and suggestions light up icons in place. Record is always in the same spot. The Map app is the one canvas, not the way you move around.',ev:'Moderate: a few studies. Canvas tools: Opinion.'}
+];
+const OPTIONS=[
+ {k:'A',t:'A. Loops and verbs',rec:true,items:['The three loops drawn on the map of Home and the eight apps','A grid: which action works in which app, so every app has a way in, something to do, and a way back','10 to 12 "When I..." moments, each with where it starts','Short step lists only for the real sequences','Every hard moment (offline, partly understood…) attached to its loop'],good:'Matches how phone makers and life-OS methods think, and is spatial in the way the evidence supports.',weak:'Feels more like a map than a story.',time:'About 20 minutes of yours (Assumption).'},
+ {k:'B',t:'B. Three days in the life',items:['A normal day, a reserve-duty day, and coming back after three days off, told through','What Sol must do is pulled from the stories'],good:'Easy to feel and correct by voice.',weak:'Hard to check nothing is missing: a story covers only what it tells.',time:'About 20 minutes (Assumption).'},
+ {k:'C',t:'C. Spatial map only',items:['One map of Home and the eight apps as places','Arrows for how things travel: a note goes to Learning, an idea becomes a task'],good:'Closest to your "spatial" feeling; one picture.',weak:'Shows movement but not rhythm (morning, evening, Saturday); actions and hard moments get lost.',time:'About 15 minutes (Assumption).'}
+];
+const IDEAS=[
+ {k:'evening',t:'A short evening close in the Sol app',d:'At the end of the day Sol shows what\'s left, and you move or drop each one by voice. From Sunsama.'},
+ {k:'saturday',t:'Saturday in three parts',d:'Clear the inbox, review goals and learning, then new ideas. From GTD\'s weekly review.'}
+];
+const DOC='picks/flows-3c';
+let state={pick:'',ideas:{},comments:{}},local={ideas:{},comments:{}},ref=null,ready=false,timer=null;
+try{const s=JSON.parse(localStorage.getItem(DOC)||'null');if(s){local=Object.assign(local,s);state.pick=s.pick||'';state.ideas=Object.assign({},s.ideas);state.comments=Object.assign({},s.comments);}}catch(e){}
+function save(){try{localStorage.setItem(DOC,JSON.stringify(local));}catch(e){}
+  if(!ref)return;clearTimeout(timer);timer=setTimeout(()=>{ref.set({pick:state.pick,ideas:state.ideas,comments:state.comments,updated:new Date().toISOString()}).then(()=>{$('saveStatus').textContent='Saved.';}).catch(()=>{$('saveStatus').textContent='Couldn\'t save. Your answers stay on this device.';});},600);}
+function talk(k,label,ph){const w=el('div','talk');const t=document.createElement('textarea');t.id='c_'+k;t.setAttribute('aria-label',label);t.placeholder=ph||'Say or type what you think';t.value=state.comments[k]||'';
+  t.addEventListener('input',()=>{state.comments[k]=t.value;local.comments[k]=t.value;save();});
+  const m=el('button','mic','Speak');m.type='button';m.dataset.target='c_'+k;m.hidden=true;w.append(t,m);return w;}
+function mount(id,k,label,ph){const h=$(id);h.innerHTML='';h.appendChild(talk(k,label,ph));}
+function render(){
+  mount('t_instinct','instinct','Your thoughts on this','Does this match what you felt?');
+  mount('t_picture','picture','Your thoughts on the picture');
+  mount('t_note','note','Anything else','Anything else, about the research or how we work');
+  const f=$('findings');f.innerHTML='';FINDINGS.forEach((x,i)=>{const c=el('div','card');c.append(el('div','t',(i+1)+'. '+x.t),el('p',null,x.d),el('p','sol',x.sol),el('p','ev',x.ev),talk(x.k,'Your thoughts on: '+x.t));f.appendChild(c);});
+  const o=$('options');o.innerHTML='';OPTIONS.forEach(x=>{const c=el('div','card opt');c.dataset.picked=String(state.pick===x.k);
+    if(x.rec)c.appendChild(el('span','tag','Recommended'));c.appendChild(el('div','t',x.t));
+    const ul=el('ul');x.items.forEach(i=>ul.appendChild(el('li',null,i)));c.appendChild(ul);
+    c.append(el('p','small','Good: '+x.good),el('p','small','Weak: '+x.weak),el('p','ev',x.time));
+    const b=el('button','pick',state.pick===x.k?'Picked':'Pick '+x.k);b.type='button';b.setAttribute('aria-pressed',String(state.pick===x.k));
+    b.onclick=()=>{state.pick=state.pick===x.k?'':x.k;local.pick=state.pick;save();keepAndRender();};
+    c.append(b,talk('opt'+x.k,'Your thoughts on option '+x.k,'What you\'d keep, change or mix'));o.appendChild(c);});
+  const d=$('ideas');d.innerHTML='';IDEAS.forEach(x=>{const c=el('div','card');c.append(el('div','t',x.t),el('p',null,x.d));
+    const s=el('div','seg');[['3c','Put it in 3c'],['later','Ideas for later'],['no','Not for me']].forEach(([v,l])=>{const b=el('button',null,l);b.type='button';b.setAttribute('aria-pressed',String(state.ideas[x.k]===v));
+      b.onclick=()=>{state.ideas[x.k]=state.ideas[x.k]===v?'':v;local.ideas[x.k]=state.ideas[x.k];save();keepAndRender();};s.appendChild(b);});
+    c.append(s,talk('idea_'+x.k,'Your thoughts on: '+x.t));d.appendChild(c);});
+  wireMics();}
+function keepAndRender(){const y=window.scrollY;render();window.scrollTo(0,y);}
+let dict=null,dictOn=false,dictTarget=null;
+function wireMics(){document.querySelectorAll('.mic').forEach(m=>{m.hidden=!dict;const on=dictOn&&dictTarget===m.dataset.target;m.classList.toggle('on',on);m.textContent=on?'Stop':'Speak';
+  m.onclick=()=>{if(!dict)return;if(dictOn){dict.stop().catch(()=>{});return;}dictTarget=m.dataset.target;dict.start().catch(e=>{if(e&&e.code==='not_granted'){dict=null;wireMics();}});};});}
+function appendTo(id,text){const t=$(id);if(!t)return;t.value=(t.value?t.value+' ':'')+text;const k=id.slice(2);state.comments[k]=t.value;local.comments[k]=t.value;save();}
+function merge(a,b){return Object.assign({},a||{},b||{});}
+render();
+(async()=>{
+  if(!window.claude||!claude.use){$('saveStatus').textContent='Open this page in Claude to save your answers.';return;}
+  const t10=setTimeout(()=>{if(!ready)$('saveStatus').textContent='Still loading…';},10000);
+  let db=null;try{db=await claude.use('db');}catch(e){}
+  if(!db){clearTimeout(t10);$('saveStatus').textContent='Sign in to save your answers.';return;}
+  ref=db.doc(DOC);let first=true;
+  ref.onSnapshot(s=>{clearTimeout(t10);ready=true;
+    if(first&&s.exists){const d=s.data()||{};state.pick=local.pick!==undefined?local.pick:(d.pick||'');state.ideas=merge(d.ideas,local.ideas);state.comments=merge(d.comments,local.comments);
+      if(!document.activeElement||document.activeElement.tagName!=='TEXTAREA')keepAndRender();}
+    if(first)$('saveStatus').textContent=s.exists?'Your saved answers are loaded.':'Nothing saved yet. Your first answer saves.';first=false;},
+    ()=>{clearTimeout(t10);$('saveStatus').textContent='Couldn\'t load saved answers. You can still answer.';});
+})();
+(async()=>{try{if(!window.claude||!claude.use)return;const t=await claude.use('tts');if(!t)return;const b=$('listen');b.hidden=false;
+  const lines=[
+   'Before step 3 C, you asked how flows work in something built like a phone. Your instinct was right: a phone has no single flow.',
+   'It has a few actions that work the same everywhere, like record, find and home. It has shared things, which is our object map. It has rhythms: the moment, the day and the week. And it has places that never move.',
+   'For Sol, that means three loops around one inbox. The moment: you say it, Sol sorts it, you see the read-back, and it lands in its app. The day: a morning plan, doing, and a close. The week: Saturday.',
+   'On spatial: research supports places that stay put. Home should never reorder itself, and record is always in the same spot. Endless zoomable canvases have weak evidence.',
+   'So I suggest three options for 3 C. A, loops and actions, drawn on the map of Sol\'s places. B, three days in your life, told as stories. C, a spatial map only.',
+   'I recommend A, because it matches how phone makers and life systems work, and it is spatial in the way the evidence supports. Pick one, and say anything in the boxes.'];
+  t.onState(({state:st})=>{b.textContent=st==='speaking'?'Stop':'Listen (1 min)';});
+  b.onclick=()=>{if(b.textContent==='Stop'){t.stop();return;}t.speak(lines.map(x=>({text:x})),{language:'en'}).catch(()=>{});};}catch(e){}})();
+(async()=>{try{if(!window.claude||!claude.use)return;const d=await claude.use('dictation');if(!d)return;dict=d;
+  d.onFinal(({text})=>{if(dictTarget)appendTo(dictTarget,text);});
+  d.onState(({state:st})=>{dictOn=st==='listening'||st==='starting';wireMics();});
+  wireMics();}catch(e){}})();
+</script>
