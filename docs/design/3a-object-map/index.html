@@ -160,7 +160,8 @@ const CHOICES=[
   o:[['goal','As part of the goal','You log progress; the count only goes up.',true],['task','As a task you tick off','Feels like a to-do, but resets each week.']],
   ev:'Counts that only go up keep people going after a slip; resets push people to quit (Moderate, research in 1b, principle P2).'}
 ];
-let state={items:{},choices:{},note:''},ref=null,ready=false,timer;
+let state={items:{},choices:{},note:''},local={items:{},choices:{}},ref=null,ready=false,timer;
+function merge(remote,loc){const r=Object.assign({},remote||{});for(const k in loc){if(loc[k]===null)delete r[k];else r[k]=loc[k];}return r;}
 function btn(txt,cls){const b=document.createElement('button');b.type='button';b.textContent=txt;if(cls)b.className=cls;return b;}
 function renderItems(){
   const box=$('items');box.textContent='';
@@ -171,7 +172,7 @@ function renderItems(){
       const ss=document.createElement('span');ss.className='s';ss.textContent='I suggest: '+s;
       const seg=document.createElement('div');seg.className='seg';seg.setAttribute('role','group');seg.setAttribute('aria-label',t);
       [['now','Now'],['later','Later'],['no','No']].forEach(([v,l])=>{const b=btn(l);b.dataset.v=v;b.setAttribute('aria-pressed',state.items[k]===v?'true':'false');
-        b.onclick=()=>{state.items[k]=state.items[k]===v?undefined:v;renderItems();save();};seg.appendChild(b);});
+        b.onclick=()=>{const nv=state.items[k]===v?undefined:v;state.items[k]=nv;local.items[k]=nv===undefined?null:nv;renderItems();save();};seg.appendChild(b);});
       el.append(tt,seg,dd,ss);
       if(SCOPE_KEYS.has(k)&&state.items[k]==='now'){const w=document.createElement('span');w.className='warn';w.textContent='This was moved to Later in #30. Now would grow the first version; I\'d bring it back as its own decision.';el.appendChild(w);}
       box.appendChild(el);});});
@@ -186,7 +187,7 @@ function renderChoices(){
     c.o.forEach(([v,t,s,rec])=>{const b=btn('','opt');b.setAttribute('aria-pressed',state.choices[c.id]===v?'true':'false');
       if(rec){const g=document.createElement('span');g.className='tag';g.textContent='Recommended';b.appendChild(g);}
       const a=document.createElement('span');a.className='ot';a.textContent=t;const d=document.createElement('span');d.className='os';d.textContent=s;b.append(a,d);
-      b.onclick=()=>{state.choices[c.id]=state.choices[c.id]===v?undefined:v;renderChoices();save();};os.appendChild(b);});
+      b.onclick=()=>{const nv=state.choices[c.id]===v?undefined:v;state.choices[c.id]=nv;local.choices[c.id]=nv===undefined?null:nv;renderChoices();save();};os.appendChild(b);});
     const e=document.createElement('p');e.className='ev';e.textContent='Evidence: '+c.ev;
     q.append(h,os,e);box.appendChild(q);});
 }
@@ -195,7 +196,8 @@ function save(){if(!ref){$('saveStatus').textContent='Saving isn\'t available he
   $('saveStatus').textContent='Saving…';clearTimeout(timer);
   timer=setTimeout(()=>{ref.set({items:clean(state.items),choices:clean(state.choices),note:state.note,updatedAt:new Date().toISOString()})
     .then(()=>{$('saveStatus').textContent='Saved. Claude can read it.'}).catch(()=>{$('saveStatus').textContent='Couldn\'t save. Try another tap.'})},700);}
-$('note').addEventListener('input',()=>{state.note=$('note').value;save();});
+let noteTouched=false;
+$('note').addEventListener('input',()=>{noteTouched=true;state.note=$('note').value;save();});
 renderItems();renderChoices();
 (async()=>{
   if(!window.claude||!claude.use){$('saveStatus').textContent='Open this page in Claude to save your taps.';return;}
@@ -203,8 +205,8 @@ renderItems();renderChoices();
   let db=null;try{db=await claude.use('db');}catch(e){}
   if(!db){clearTimeout(t10);$('saveStatus').textContent='Sign in to save your taps.';}
   else{ref=db.doc('picks/object-map');
-    ref.onSnapshot(s=>{clearTimeout(t10);if(ready)return;ready=true;if(s.exists){const d=s.data()||{};state.items=d.items||{};state.choices=d.choices||{};
-        if(document.activeElement!==$('note')){state.note=d.note||'';$('note').value=state.note;}}
+    ref.onSnapshot(s=>{clearTimeout(t10);ready=true;if(s.exists){const d=s.data()||{};state.items=merge(d.items,local.items);state.choices=merge(d.choices,local.choices);
+        if(!noteTouched&&document.activeElement!==$('note')){state.note=d.note||'';$('note').value=state.note;}}
       $('saveStatus').textContent=s.exists?'Your saved taps are loaded.':'Nothing saved yet. Your first tap saves.';renderItems();renderChoices();},
       ()=>{clearTimeout(t10);$('saveStatus').textContent='Couldn\'t load saved taps. You can still tap.'});}
   try{const t=await claude.use('tts');if(t){const b=$('listen');b.hidden=false;
@@ -218,7 +220,7 @@ renderItems();renderChoices();
     t.onState(({state:st})=>{b.textContent=st==='speaking'?'Stop':'Listen (1 min)'});
     b.onclick=()=>{if(b.textContent==='Stop'){t.stop();return;}t.speak(lines.map(x=>({text:x})),{language:'en'}).catch(()=>{});};}}catch(e){}
   try{const d=await claude.use('dictation');if(d){const m=$('mic');m.hidden=false;let on=false;
-    d.onFinal(({text})=>{state.note=(state.note?state.note+' ':'')+text;$('note').value=state.note;save();});
+    d.onFinal(({text})=>{noteTouched=true;state.note=(state.note?state.note+' ':'')+text;$('note').value=state.note;save();});
     d.onState(({state:st})=>{on=st==='listening'||st==='starting';m.textContent=on?'Stop':'Speak your answer';});
     m.onclick=()=>{if(on){d.stop().catch(()=>{});return;}d.start().catch(e=>{if(e&&e.code==='not_granted')m.hidden=true;});};}}catch(e){}
 })();
