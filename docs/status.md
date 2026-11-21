@@ -12,5 +12,4 @@ Next step (one task, one owner):
 - 3b places: screen list with every state, two ways to move around (Designer, Opus 5.5 high)
 
 Blocked on / waiting for Shaked:
-- Garmin in the MVP: Later / check first / now (decision card in the 3a thread)
 - Real ElevenLabs sk_ key before Phase 4

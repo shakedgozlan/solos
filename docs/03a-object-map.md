@@ -1,7 +1,7 @@
 # 3a · Object map: every kind of thing Sol holds
 > Summary: Sol holds **two families of things**. *Lasting things* stay and change over time (direction, goal, topic, task, recall card, usual, calendar event). *Moments* are entries: something that happened, logged once (progress, minutes learned, what stuck, calm, mood, task done). Every moment comes from a **note** and points to a lasting thing. Screens are views over these, never their own data.
 
-Date: 2026-11-21 · Role: Designer (Opus 5.5, high) · Status: Shaked's taps in (2026-11-21, #35); Garmin waits for one decision. Page: https://claude.ai/artifact/KLoGvAk2n68QnELgYd3tSF (db picks/object-map)
+Date: 2026-11-21 · Role: Designer (Opus 5.5, high) · Status: Shaked's taps in (2026-11-21, #35); Garmin: Later (decision card). Page: https://claude.ai/artifact/KLoGvAk2n68QnELgYd3tSF (db picks/object-map)
 Builds on: [02c-user-stories.md](02c-user-stories.md), [decisions.md](decisions.md) #30, #32, #34, [3-0 research](research/3-0-ux-process.md).
 
 ## Method
@@ -58,7 +58,7 @@ Tasks, goals and what I learn; also my schedule and "my algorithm", the mind map
 **Candidates to jog the list** (on the page, Now / Later / No): ideas, questions, things you save, books, money, meals and weight, workouts and sleep, projects, people, decisions, journal. Books, money and food were moved to Later in #30; a Now tap on them comes back as its own decision.
 
 ## Shaked's taps (2026-11-21, #35)
-- **Now:** tasks, goals and directions, topics, skills, map, schedule (still a Should), usuals, Saturday review and wins, About you, things Sol offers back, **ideas**, **people**, **decisions** (new), **workouts and sleep from Garmin** (new, pending its own decision).
+- **Now:** tasks, goals and directions, topics, skills, map, schedule (still a Should), usuals, Saturday review and wins, About you, things Sol offers back, **ideas**, **people**, **decisions** (new), then by decision card: **workouts and sleep from Garmin moved to Later**.
 - **Later:** calm minutes and mood (both were in the MVP: stories 16 and part of 2; #23), books, money, meals and weight (as in #30), journal, projects, questions, things you save.
 - **Choices:** skills and topics are **two things** (Claude recommended one; a skill counts minutes, a topic holds knowledge, and a skill links to one or more topics); the original note stays **attached** to what it made; a goal's weekly step stays **part of the goal**.
 
@@ -70,4 +70,3 @@ New lasting things from the taps:
 | **Person** | Someone in your life | Name, what they said, things to follow up | Tasks and notes that mention them | Add by voice, see their notes |
 | **Decision** | A choice you made and why | The choice, your reasons, date | May link to a goal or direction | Add by voice, look back on it |
 | **About you** | Sol's picture of you | What works, patterns, your words, your fixes | Built from fixes, Saturday answers, quiet counts | Read, correct |
-| **Body day** | Garmin data for a day (if approved) | Sleep, steps, workouts | Read-only, like the calendar | View |
