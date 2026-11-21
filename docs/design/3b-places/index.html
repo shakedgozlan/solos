@@ -1,0 +1,354 @@
+<title>Sol's Places</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: one calm column. What changed from your voice note, Sol's apps as cards with room to talk about each, two phone-style home screens to play with, then small choices. */
+:root{
+  --bg:#F2F2F0; --surface:#FFFFFF; --ink:#1D1E20; --muted:#666A70; --line:#DCDDDA; --grey:#E6E6E3; --grey2:#D2D3CF;
+  --accent:#C9472E; --accent-ink:#FFFFFF; --accent-soft:#F6E2DC; --later:#5B5F8C; --later-soft:#E4E5F0;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#151617; --surface:#202123; --ink:#EEEEEC; --muted:#A2A5A9; --line:#34363A; --grey:#2B2C2F; --grey2:#3A3C40;
+  --accent:#EE6D52; --accent-ink:#1B0D09; --accent-soft:#3A2420; --later:#A9ADE0; --later-soft:#2A2B3D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#151617; --surface:#202123; --ink:#EEEEEC; --muted:#A2A5A9; --line:#34363A; --grey:#2B2C2F; --grey2:#3A3C40;
+  --accent:#EE6D52; --accent-ink:#1B0D09; --accent-soft:#3A2420; --later:#A9ADE0; --later-soft:#2A2B3D; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:780px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:36px}
+h1{font-family:var(--display);font-size:2.1rem;line-height:1.1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-family:var(--display);font-size:1.25rem;margin:0 0 4px;text-wrap:balance}
+p{margin:0}
+section{display:grid;gap:12px;min-width:0}
+.muted{color:var(--muted)} .small{font-size:.86rem}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 13px;touch-action:manipulation}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.frame{display:grid;gap:6px;border-inline-start:3px solid var(--accent);padding-inline-start:14px}
+.changes{margin:0;padding-inline-start:18px;display:grid;gap:6px}
+/* app cards */
+.apps{display:grid;gap:10px}
+.app{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 12px}
+.ico{width:44px;height:44px;border-radius:11px;background:var(--grey2);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);grid-row:1 / span 2}
+.ico.heart{background:var(--accent);color:var(--accent-ink)}
+.app .t{font-weight:600;font-family:var(--display);font-size:1.05rem}
+.app .d{font-size:.88rem;color:var(--muted)}
+.app .more{grid-column:1 / -1;display:grid;gap:8px;margin-top:6px}
+.app .note{font-size:.86rem;background:var(--later-soft);color:var(--ink);border-radius:10px;padding:8px 10px}
+.talk{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:start}
+.talk textarea{min-height:44px}
+.mic{padding:8px 10px;font-size:.84rem;white-space:nowrap}
+.mic.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{padding:6px 11px;font-size:.86rem;border-radius:8px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip{padding:5px 11px;font-size:.86rem;border-radius:999px}
+input[type=text]{width:100%;font:inherit;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 10px}
+textarea{width:100%;min-height:96px;font:inherit;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 10px;resize:vertical}
+.rec{font-size:.74rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 7px;margin-inline-start:6px;vertical-align:1px}
+/* states */
+.states{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (max-width:560px){.states{grid-template-columns:1fr}}
+.st{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:2px;min-width:0}
+.st span{font-size:.86rem;color:var(--muted)}
+.st i{font-style:normal;font-size:.78rem;color:var(--later)}
+/* phones */
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.phones{grid-template-columns:1fr}}
+.opt{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px;align-content:start;min-width:0}
+.opt .h{font-family:var(--display);font-weight:600;font-size:1.1rem}
+.tag{justify-self:start;font-size:.74rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 7px}
+.phone{width:100%;max-width:280px;justify-self:center;aspect-ratio:9/17;border:2px solid var(--grey2);border-radius:30px;background:var(--bg);position:relative;overflow:hidden;display:flex;flex-direction:column;user-select:none;-webkit-user-select:none}
+.scr{flex:1;padding:18px 12px 8px;display:flex;flex-direction:column;gap:8px;overflow:hidden;min-height:0}
+.pt{font-family:var(--display);font-weight:600;font-size:1.05rem}
+.blk{background:var(--grey);border-radius:8px;padding:8px 9px;font-size:.74rem;color:var(--muted);line-height:1.3}
+.widget{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px;display:grid;gap:3px;font-size:.72rem;color:var(--muted);text-align:start;line-height:1.3}
+.widget b{color:var(--ink);font-size:.8rem}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 6px}
+.icon{border:0;background:none;padding:0;display:grid;justify-items:center;gap:3px;font-size:.62rem;color:var(--ink);position:relative}
+.icon .sq{width:44px;height:44px;border-radius:12px;background:var(--grey2);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:.9rem}
+.icon .sq.heart{background:var(--accent);color:var(--accent-ink)}
+.badge{position:absolute;top:-4px;right:calc(50% - 28px);background:var(--ink);color:var(--bg);border-radius:999px;font-size:.58rem;min-width:16px;height:16px;padding:0 4px;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.dock{margin:auto 8px 10px;background:var(--grey);border-radius:20px;padding:8px 6px;display:grid;grid-template-columns:repeat(5,1fr);align-items:center}
+.recbtn{width:46px;height:46px;border-radius:50%;background:var(--accent);border:0;justify-self:center}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wgrid .widget.big{grid-column:span 2}
+.dots{display:flex;justify-content:center;gap:6px;margin:4px 0}
+.dots button{width:8px;height:8px;border-radius:50%;padding:0;border:0;background:var(--grey2)}
+.dots button[aria-current="true"]{background:var(--ink)}
+.strip{height:34px;display:grid;place-items:center;border:0;background:none;padding:0;margin-bottom:4px;touch-action:none}
+.strip span{width:110px;height:5px;border-radius:3px;background:var(--ink);opacity:.75}
+.fab{position:absolute;bottom:46px;left:50%;transform:translateX(-50%);width:50px;height:50px;border-radius:50%;background:var(--accent);border:0}
+.fab.side{left:auto;right:14px;transform:none;bottom:62px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);background:var(--surface);padding:6px 10px 12px}
+.three button{border:0;background:none;padding:6px 0;font-size:.74rem;color:var(--muted)}
+.sheet{position:absolute;inset:auto 0 0 0;background:var(--surface);border-top:1px solid var(--line);border-radius:16px 16px 0 0;padding:14px;display:grid;gap:8px;font-size:.8rem;z-index:2}
+.recents{position:absolute;inset:0;background:var(--bg);padding:18px 12px;display:grid;gap:8px;align-content:start;z-index:2}
+.recents button{text-align:start;padding:14px 12px;border-radius:14px}
+.hint{font-size:.72rem;color:var(--muted);text-align:center}
+.counter{font-size:.86rem;text-align:center}
+.counter b{font-variant-numeric:tabular-nums}
+.pc{display:grid;gap:4px;font-size:.88rem}
+.pc ul{margin:0;padding-inline-start:18px;display:grid;gap:3px}
+.ev{font-size:.8rem;color:var(--muted)}
+.pick{font-weight:600;padding:10px}
+.pick[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px}
+.q .h{font-family:var(--display);font-weight:600;font-size:1.05rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:520px){.opts{grid-template-columns:1fr}}
+.o{text-align:start;display:grid;gap:4px;padding:12px;width:100%}
+.o[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.o .ot{font-weight:600} .o .os{font-size:.85rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<main class="wrap">
+  <header style="display:grid;gap:14px">
+    <p class="small muted">Sol · Design step 3b · version 2, after your voice note</p>
+    <h1>Sol's apps, and how you move between them</h1>
+    <div class="frame">
+      <p><b>Where we are:</b> step 2 of 6 in UX. Your voice note reshaped this step, so this is a new version.</p>
+      <p><b>What it decides:</b> which apps sit on Sol's home screen, and how you move between them, like on a phone.</p>
+      <p><b>What you decide:</b> a name for the main app, a few small choices, and one of two home screens. Talk about any app in its own box.</p>
+    </div>
+    <div class="row"><button id="listen" class="primary" type="button" hidden>Listen (1 min)</button><span id="saveStatus" class="small muted">Loading…</span></div>
+  </header>
+
+  <section>
+    <h2>What changed from your voice note</h2>
+    <ul class="changes">
+      <li><b>Sol is an operating system, not an app.</b> The home screen works like a new iPhone or Galaxy, with real-looking mini apps on it.</li>
+      <li><b>Sol opens on Home.</b> Your main app is one tap from there.</li>
+      <li><b>Fewer, bigger apps.</b> Today, record, the read-back card and a task are now one app, the heart of Sol, and it needs a name. A goal lives inside Goals. Skills, topics and recall live inside Learning. Saturday and About you are one app.</li>
+      <li><b>Loading</b> shows a skeleton (grey shapes where the content will be).</li>
+      <li><b>People</b> wasn't clear, so it's explained below, and you choose again.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Sol's apps</h2>
+    <p class="muted small">Ten apps on the home screen. Each has its own box: speak or type anything about it, such as a rename, a merge, or a doubt.</p>
+    <div id="apps" class="apps"></div>
+  </section>
+
+  <section>
+    <h2>Two home screens to try</h2>
+    <p class="muted small"><b>Try it:</b> open Goals, go back Home, then open Ideas. In A, tap or swipe up on the line at the bottom to go Home, and swipe sideways on it to jump back to the last app. In B, swipe Home sideways, and use the three buttons at the bottom. Grey shapes only; colour and style come much later.</p>
+    <div class="phones">
+      <div class="opt">
+        <span class="tag">Recommended</span>
+        <p class="h">A · Like an iPhone</p>
+        <p class="small muted">One home screen: a big live widget for the main app, app icons with small numbers, and a dock with record in the middle. Inside an app, a thin line at the bottom takes you Home.</p>
+        <div class="phone" id="phoneA"></div>
+        <p class="counter" id="countA"></p>
+        <div class="pc"><b>For</b><ul>
+          <li>It works the way your own phone already does, so there's nothing new to learn.</li>
+          <li>Everything is on one screen, and the numbers show what needs you.</li>
+          <li>Record sits in the dock, under your thumb.</li></ul></div>
+        <div class="pc"><b>Against</b><ul>
+          <li>Gestures are invisible until you know them.</li>
+          <li>When Sol grows past about a dozen apps, it needs a second page, like B.</li></ul></div>
+        <button class="pick" type="button" data-pick="A">Choose A</button>
+      </div>
+      <div class="opt">
+        <span class="tag" style="visibility:hidden">·</span>
+        <p class="h">B · Like a Galaxy</p>
+        <p class="small muted">Two home pages you swipe between: live widgets first, then all the apps. Inside an app, three buttons at the bottom: recent apps, Home and back.</p>
+        <div class="phone" id="phoneB"></div>
+        <p class="counter" id="countB"></p>
+        <div class="pc"><b>For</b><ul>
+          <li>The first page shows more live information at once.</li>
+          <li>Visible buttons: you never need to remember a gesture.</li></ul></div>
+        <div class="pc"><b>Against</b><ul>
+          <li>The buttons take a strip of every screen.</li>
+          <li>Half the apps sit on a second page, one swipe away.</li>
+          <li>It works differently from the iPhone in your hand.</li></ul></div>
+        <button class="pick" type="button" data-pick="B">Choose B</button>
+      </div>
+    </div>
+    <div class="talk"><textarea id="c_nav" aria-label="Your thoughts on the two home screens" placeholder="Anything about A or B: what you'd take from each, what feels wrong"></textarea><button class="mic" type="button" data-target="c_nav" hidden>Speak</button></div>
+    <p class="ev"><b>Evidence.</b> People spend most of their time in other apps, so they expect a new one to work like the ones they know (Jakob's law, NN/g; Opinion, widely used). You use an iPhone every day (iCloud, Downtime), which favours A. Gestures are harder to discover than visible buttons (NN/g; Moderate, read through summaries), which favours B for a new user, but Sol has one user who already lives with iPhone gestures. About half of phone use is one-handed, and the bottom middle is easiest to reach (Steven Hoober, 1,333 observations, 2013; Moderate).</p>
+    <p class="ev"><b>A limit to know.</b> Sol runs inside your iPhone. A swipe up from the very bottom edge always goes to the iPhone's own home screen, not Sol's (Assumption: how iOS treats installed web apps; we check it on your phone in 3e). So Sol's Home line sits just above that edge, and a tap on it works too.</p>
+  </section>
+
+  <section>
+    <h2>Hard moments, the same in every app</h2>
+    <p class="muted small">Updated from your note. No screen should ever look broken or unfinished.</p>
+    <div class="states" id="states"></div>
+  </section>
+
+  <section>
+    <h2>Anything else?</h2>
+    <p class="muted small">A missing app, a better way, a thought. Speak or type.</p>
+    <div class="talk"><textarea id="note" aria-label="Your note"></textarea><button class="mic" type="button" data-target="note" hidden>Speak</button></div>
+  </section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const NAMES=['Now · עכשיו','My day · היום שלי','Sol · סול'];
+const APPS=[
+ {k:'heart',ico:'?',heart:true,t:'The main app (name it)',d:'What\'s on today, record and the read-back card, and each task. The heart of Sol: you talk, it sorts, you see your day.',name:true,
+  q:{id:'recordWhere',h:'Where can you record?',o:[['every','Here, plus a small record button in every app',true],['here','Only here and on Home']],why:'Thoughts come up anywhere, and losing one is what you fear most. Story 1 also says record is inside every app.'}},
+ {k:'goals',ico:'G',t:'Goals',d:'Directions (5-20 years) and your 3-4 active goals with this week\'s step. Tap one to see its target, if-then plan and progress.'},
+ {k:'learning',ico:'L',t:'Learning',d:'Skills with minutes this week, topics, and recall: say it from memory, see your own words, "got it" or "not yet".'},
+ {k:'map',ico:'M',t:'Map',d:'The Living map: every topic you grow in, as circles that grow. Tap one to open it in Learning.'},
+ {k:'ideas',ico:'I',t:'Ideas',d:'Thoughts to keep but not act on yet. Turn one into a task or a goal.'},
+ {k:'people',ico:'P',t:'People',d:'',
+  explain:'You tapped People "Now" in step 3a. What it means: when you say "Dana told me about a course, I should get back to her", Sol keeps Dana as a person. Her app page shows what she said and what you owe her, so follow-ups with people don\'t get lost.',
+  q:{id:'people',h:'Keep People?',o:[['now','Yes, in the first version'],['later','Later',true],['no','Not for Sol']],why:'Tasks already catch "get back to Dana". A People app adds a new app to build and look after. Ideas and Decisions stay.'}},
+ {k:'decisions',ico:'D',t:'Decisions',d:'Choices you made and why, to look back on.'},
+ {k:'saturday',ico:'S',t:'Saturday and About you',d:'Your idea: one app for looking at yourself. Saturday\'s five-minute review with its wins, and Sol\'s picture of you that you can read and correct.',
+  q:{id:'lab',h:'And Sol Lab, the weekly report on how Sol can serve you better?',o:[['inside','Inside this app, as the last part of Saturday',true],['own','Its own app']],why:'The Lab report comes once a week, like the review, and reads your Saturday answers. One app, one weekly visit.'}},
+ {k:'settings',ico:'⚙',t:'Settings',d:'Hebrew or English, morning and evening times, the Claude app connection. The first-time setup (sign in, language, notifications, add to home screen) runs once.'}
+];
+const STATES=[
+ ['First time, nothing yet','One line saying what will show here, and "say your first one". Never blank.'],
+ ['Loading','A skeleton: grey shapes where the content will be.','Your choice. Skeletons make waits feel shorter than spinners (NN/g; Moderate).'],
+ ['No internet','Your note is saved on the phone and sent when you\'re back online. Sol says "saved, will send".'],
+ ['Sol didn\'t fully understand','The unclear part is marked on the read-back card. Sol never guesses silently.'],
+ ['Microphone off','You said this shouldn\'t happen, and normally it won\'t. If iPhone settings ever turn it off, a text box appears with one line on how to switch it back on.','Kept as a safety net only (Assumption: iOS can ask again after updates).'],
+ ['Welcome back','After 2+ days away: one calm line and a one-sentence re-plan. No count of missed days, no red.'],
+ ['Just deleted','"Deleted · Undo" for a few seconds. No "are you sure?" pop-ups.']
+];
+let state={nav:'',choices:{},comments:{},name:'',note:''};
+const local={nav:undefined,choices:{},comments:{},name:undefined,note:undefined};
+let ref=null,ready=false,timer;
+function merge(remote,loc){const r=Object.assign({},remote||{});for(const k in loc){if(loc[k]===null)delete r[k];else if(loc[k]!==undefined)r[k]=loc[k];}return r;}
+function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;}
+function btn(txt,cls){const b=el('button',cls,txt);b.type='button';return b;}
+function talk(id,label,ph){const w=el('div','talk');const t=document.createElement('textarea');t.id=id;t.setAttribute('aria-label',label);if(ph)t.placeholder=ph;const m=btn('Speak','mic');m.dataset.target=id;m.hidden=true;w.append(t,m);return w;}
+function renderApps(){
+  const box=$('apps');box.textContent='';
+  APPS.forEach(a=>{const c=el('div','app');const ic=el('div','ico'+(a.heart?' heart':''),a.ico);ic.setAttribute('aria-hidden','true');
+    const t=el('span','t',a.t);const d=el('span','d',a.d);c.append(ic,t,d);
+    const more=el('div','more');
+    if(a.explain)more.appendChild(el('p','note',a.explain));
+    if(a.name){const lab=el('p','small','What would you call it? Your own name first; tap a suggestion if one fits.');
+      const inp=document.createElement('input');inp.type='text';inp.id='nameInput';inp.setAttribute('aria-label','Name for the main app');inp.value=state.name||'';
+      inp.addEventListener('input',()=>{state.name=inp.value;local.name=inp.value;save();});
+      const chips=el('div','row');NAMES.forEach(n=>{const b=btn(n,'chip');b.onclick=()=>{state.name=n;local.name=n;inp.value=n;save();};chips.appendChild(b);});
+      more.append(lab,inp,chips,el('p','ev','Hebrew comes first, so the name has to sound right in Hebrew. "Sol" would make the main app carry the system\'s own name, like Phone on a phone.'));}
+    if(a.q){const q=a.q;const h=el('p','small');const hb=el('b',null,q.h);h.appendChild(hb);const seg=el('div','seg');seg.setAttribute('role','group');seg.setAttribute('aria-label',q.h);
+      q.o.forEach(([v,l,rec])=>{const b=btn(l);b.dataset.q=q.id;b.dataset.v=v;b.setAttribute('aria-pressed',state.choices[q.id]===v?'true':'false');if(rec){const r=el('span','rec','Recommended');b.appendChild(r);}
+        b.onclick=()=>{const nv=state.choices[q.id]===v?undefined:v;state.choices[q.id]=nv;local.choices[q.id]=nv===undefined?null:nv;updateChoices();save();};seg.appendChild(b);});
+      more.append(h,seg,el('p','ev','Why: '+q.why));}
+    const tk=talk('c_'+a.k,'Your thoughts on '+a.t,'Speak or type about this app');tk.querySelector('textarea').value=state.comments[a.k]||'';
+    tk.querySelector('textarea').addEventListener('input',e=>{state.comments[a.k]=e.target.value;local.comments[a.k]=e.target.value;save();});
+    more.appendChild(tk);c.appendChild(more);box.appendChild(c);});
+  wireMics();
+}
+function updateChoices(){document.querySelectorAll('button[data-q]').forEach(b=>b.setAttribute('aria-pressed',state.choices[b.dataset.q]===b.dataset.v?'true':'false'));}
+function renderStates(){const box=$('states');STATES.forEach(([b,s,i])=>{const d=el('div','st');d.append(el('b',null,b),el('span',null,s));if(i)d.appendChild(el('i',null,i));box.appendChild(d);});}
+function renderPicks(){document.querySelectorAll('.pick').forEach(b=>{const on=state.nav===b.dataset.pick;b.setAttribute('aria-pressed',on?'true':'false');b.textContent=on?('Chosen: '+b.dataset.pick):('Choose '+b.dataset.pick);});}
+document.querySelectorAll('.pick').forEach(b=>b.onclick=()=>{const nv=state.nav===b.dataset.pick?'':b.dataset.pick;state.nav=nv;local.nav=nv;renderPicks();save();});
+$('c_nav').addEventListener('input',e=>{state.comments.nav=e.target.value;local.comments.nav=e.target.value;save();});
+$('note').addEventListener('input',e=>{state.note=e.target.value;local.note=e.target.value;save();});
+
+/* phones */
+const MAIN=()=>{const n=(state.name||'').split('·')[0].trim();return n||'Main';};
+const PLACES={
+ heart:['3 tasks today','Call the lecturer · 14:00','Goal step: cook at home · 2 of 3','Recall: auto layout'],
+ goals:['Direction: a healthy body','Active: cook at home · 2 of 3','Active: smoke-free','Waiting goals (2)'],
+ learning:['Figma · 95 min this week','Topic: auto layout','Recall: 2 due'],
+ map:['Topics as growing circles'],
+ ideas:['A poster series about sleep','Ask about the course'],
+ people:['Dana · get back about the course'],
+ decisions:['Quit date after the reserves'],
+ saturday:['Review tonight · 5 steps','About you','Lab: 2 suggestions'],
+ settings:['Language: Hebrew','Morning: 08:00 · Evening: 21:00']
+};
+const ICONS=[['heart','',3,true],['goals','Goals',0],['learning','Learning',2],['map','Map',0],['ideas','Ideas',4],['people','People',1],['decisions','Decisions',0],['saturday','Saturday',1],['settings','Settings',0]];
+const TITLE=k=>k==='heart'?MAIN():(ICONS.find(i=>i[0]===k)||[k,k])[1];
+const mocks={A:{at:'home',prev:null,taps:0,sheet:false,page:0,rec:false},B:{at:'home',prev:null,taps:0,sheet:false,page:0,rec:false}};
+function open(m,k){const s=mocks[m];s.taps++;if(k!=='home'&&s.at!=='home')s.prev=s.at;else if(k==='home'&&s.at!=='home')s.prev=s.at;s.at=k;s.sheet=false;s.rec=false;draw(m);}
+function icon(m,k,label,badge,heart){const b=btn('','icon');const sq=el('span','sq'+(heart?' heart':''),heart?MAIN().slice(0,1):(k==='settings'?'⚙':label.slice(0,1)));const l=el('span',null,heart?MAIN():label);b.append(sq,l);if(badge){const g=el('span','badge',String(badge));b.appendChild(g);}b.setAttribute('aria-label','Open '+(heart?MAIN():label));b.onclick=()=>open(m,k);return b;}
+function widget(m,k,title,lines,big){const w=btn('','widget'+(big?' big':''));w.appendChild(el('b',null,title));lines.forEach(x=>w.appendChild(el('span',null,x)));w.setAttribute('aria-label','Open '+title);w.onclick=()=>open(m,k);return w;}
+function recSheet(m,ph){const s=mocks[m];if(!s.rec)return;const sh=el('div','sheet');sh.append(el('b',null,'Listening…'),el('span','muted','Here you talk; then the read-back card shows.'));const c=btn('Done');c.onclick=()=>{s.rec=false;s.taps++;draw(m);};sh.appendChild(c);ph.appendChild(sh);}
+function swipeable(node,{up,left,right,tap}){let x0=null,y0=null;node.addEventListener('pointerdown',e=>{x0=e.clientX;y0=e.clientY;try{node.setPointerCapture(e.pointerId);}catch(_){}});
+  node.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0,dy=e.clientY-y0;x0=null;
+    if(dy<-20&&Math.abs(dy)>Math.abs(dx)){up&&up();}else if(Math.abs(dx)>30){(dx<0?left:right)&&(dx<0?left:right)();}else{tap&&tap();}});
+  node.addEventListener('pointercancel',()=>{x0=null;});}
+function draw(m){
+  const s=mocks[m],ph=$('phone'+m);ph.textContent='';const scr=el('div','scr');ph.appendChild(scr);
+  if(s.at==='home'){
+    if(m==='A'){scr.appendChild(widget(m,'heart',MAIN()+' · today',['Call the lecturer · 14:00','Cook at home · 2 of 3','Recall: auto layout']));
+      const g=el('div','grid4');ICONS.filter(i=>['map','people','decisions','saturday','settings'].includes(i[0])).forEach(([k,l,b])=>g.appendChild(icon(m,k,l,b)));scr.appendChild(g);
+      const dock=el('div','dock');dock.append(icon(m,'heart','',3,true),icon(m,'goals','Goals',0));const r=btn('','recbtn');r.setAttribute('aria-label','Record');r.onclick=()=>{s.taps++;s.rec=true;draw(m);};dock.append(r,icon(m,'learning','Learning',2),icon(m,'ideas','Ideas',4));ph.appendChild(dock);}
+    else{const area=el('div');area.style.cssText='flex:1;display:flex;flex-direction:column;gap:8px;touch-action:pan-y';
+      if(s.page===0){const w=el('div','wgrid');w.append(widget(m,'heart',MAIN()+' · today',['Call the lecturer · 14:00','Cook at home · 2 of 3'],true),widget(m,'goals','Goals',['3 active']),widget(m,'learning','Learning',['95 min · 2 to recall']),widget(m,'saturday','Saturday',['Review tonight']),widget(m,'ideas','Ideas',['4 kept']));area.appendChild(w);}
+      else{const g=el('div','grid4');ICONS.forEach(([k,l,b,h])=>g.appendChild(icon(m,k,l,b,h)));area.appendChild(g);}
+      scr.appendChild(area);
+      swipeable(area,{left:()=>{if(s.page===0){s.page=1;s.taps++;draw(m);}},right:()=>{if(s.page===1){s.page=0;s.taps++;draw(m);}}});
+      const dots=el('div','dots');[0,1].forEach(i=>{const d=btn('');d.setAttribute('aria-label','Home page '+(i+1));d.setAttribute('aria-current',s.page===i?'true':'false');d.onclick=()=>{if(s.page!==i){s.page=i;s.taps++;draw(m);}};dots.appendChild(d);});
+      scr.appendChild(dots);scr.appendChild(el('p','hint','Swipe or tap the dots for page '+(s.page===0?'2':'1')));
+      const f=btn('','fab side');f.setAttribute('aria-label','Record');f.onclick=()=>{s.taps++;s.rec=true;draw(m);};ph.appendChild(f);
+      threeButtons(m,ph);}
+  }else{
+    scr.appendChild(el('p','pt',TITLE(s.at)));(PLACES[s.at]||[]).forEach(x=>scr.appendChild(el('div','blk',x)));
+    if(s.at!=='heart'){const f=btn('','fab'+(m==='B'?' side':''));f.setAttribute('aria-label','Record');f.onclick=()=>{s.taps++;s.rec=true;draw(m);};ph.appendChild(f);}
+    else{const r=el('div','blk','Tap the big button to record');r.style.cssText+='text-align:center';scr.appendChild(r);const f=btn('','fab'+(m==='B'?' side':''));f.setAttribute('aria-label','Record');f.style.width=f.style.height='60px';f.onclick=()=>{s.taps++;s.rec=true;draw(m);};ph.appendChild(f);}
+    if(m==='A'){scr.appendChild(el('p','hint','Tap or swipe up on the line: Home · swipe sideways: last app'));const st=btn('','strip');st.appendChild(el('span'));st.setAttribute('aria-label','Go Home');
+      swipeable(st,{up:()=>open(m,'home'),tap:()=>open(m,'home'),left:()=>{if(s.prev&&s.prev!=='home')open(m,s.prev);},right:()=>{if(s.prev&&s.prev!=='home')open(m,s.prev);}});ph.appendChild(st);}
+    else threeButtons(m,ph);
+  }
+  if(s.sheet){const rc=el('div','recents');rc.appendChild(el('p','pt','Recent apps'));const list=[s.at,s.prev].filter((x,i,a)=>x&&x!=='home'&&a.indexOf(x)===i);if(!list.length)rc.appendChild(el('p','muted small','Nothing open yet.'));
+    list.forEach(k=>{const b=btn(TITLE(k));b.onclick=()=>open(m,k);rc.appendChild(b);});const c=btn('Close');c.onclick=()=>{s.sheet=false;draw(m);};rc.appendChild(c);ph.appendChild(rc);}
+  recSheet(m,ph);
+  const cnt=$('count'+m);cnt.textContent='';cnt.append('Taps: ');cnt.appendChild(el('b',null,String(s.taps)));const r=btn('Start again');r.style.cssText='margin-inline-start:10px;padding:4px 10px;font-size:.8rem';
+  r.onclick=()=>{Object.assign(s,{at:'home',prev:null,taps:0,sheet:false,page:0,rec:false});draw(m);};cnt.appendChild(r);
+}
+function threeButtons(m,ph){const s=mocks[m];const bar=el('nav','three');bar.setAttribute('aria-label','Option B buttons');
+  const rc=btn('Recent');rc.onclick=()=>{s.taps++;s.sheet=true;draw(m);};
+  const hm=btn('Home');hm.onclick=()=>{if(s.at==='home'){if(s.page!==0){s.page=0;s.taps++;draw(m);}}else open(m,'home');};
+  const bk=btn('Back');bk.onclick=()=>{if(s.at!=='home')open(m,'home');else if(s.page===1){s.page=0;s.taps++;draw(m);}};
+  bar.append(rc,hm,bk);ph.appendChild(bar);}
+
+/* saving */
+function clean(o){const r={};for(const k in o)if(o[k])r[k]=o[k];return r;}
+function save(){if(!ref){$('saveStatus').textContent='Saving isn\'t available here; your answers stay on this screen.';return;}
+  $('saveStatus').textContent='Saving…';clearTimeout(timer);
+  timer=setTimeout(()=>{ref.set({nav:state.nav||'',choices:clean(state.choices),comments:clean(state.comments),name:state.name||'',note:state.note||'',updatedAt:new Date().toISOString()})
+    .then(()=>{$('saveStatus').textContent='Saved. Claude can read it.'}).catch(()=>{$('saveStatus').textContent='Couldn\'t save. Try again in a moment.'})},700);}
+function fillFields(){
+  document.querySelectorAll('textarea[id^="c_"]').forEach(t=>{const k=t.id.slice(2);if(document.activeElement!==t)t.value=state.comments[k]||'';});
+  if(document.activeElement!==$('note'))$('note').value=state.note||'';
+  const n=$('nameInput');if(n&&document.activeElement!==n)n.value=state.name||'';}
+let dict=null,dictOn=false,dictTarget=null;
+function wireMics(){document.querySelectorAll('.mic').forEach(m=>{m.hidden=!dict;m.classList.toggle('on',dictOn&&dictTarget===m.dataset.target);m.textContent=(dictOn&&dictTarget===m.dataset.target)?'Stop':'Speak';
+  m.onclick=()=>{if(!dict)return;if(dictOn){dict.stop().catch(()=>{});return;}
+    dictTarget=m.dataset.target;dict.start().catch(e=>{if(e&&e.code==='not_granted'){dict=null;wireMics();}});};});}
+function appendTo(id,text){const t=$(id);if(!t)return;const v=(t.value?t.value+' ':'')+text;t.value=v;
+  if(id==='note'){state.note=v;local.note=v;}else{const k=id.slice(2);state.comments[k]=v;local.comments[k]=v;}save();}
+renderApps();renderStates();renderPicks();draw('A');draw('B');
+(async()=>{
+  if(!window.claude||!claude.use){$('saveStatus').textContent='Open this page in Claude to save your answers.';return;}
+  const t10=setTimeout(()=>{if(!ready)$('saveStatus').textContent='Still loading…'},10000);
+  let db=null;try{db=await claude.use('db');}catch(e){}
+  if(!db){clearTimeout(t10);$('saveStatus').textContent='Sign in to save your answers.';return;}
+  ref=db.doc('picks/places-v2');
+  ref.onSnapshot(s=>{clearTimeout(t10);ready=true;if(s.exists){const d=s.data()||{};
+      state.choices=merge(d.choices,local.choices);state.comments=merge(d.comments,local.comments);
+      state.nav=local.nav!==undefined?local.nav:(d.nav||'');state.name=local.name!==undefined?local.name:(d.name||'');state.note=local.note!==undefined?local.note:(d.note||'');}
+    $('saveStatus').textContent=s.exists?'Your saved answers are loaded.':'Nothing saved yet. Your first answer saves.';updateChoices();renderPicks();fillFields();draw('A');draw('B');},
+    ()=>{clearTimeout(t10);$('saveStatus').textContent='Couldn\'t load saved answers. You can still answer.'});
+})();
+(async()=>{try{if(!window.claude||!claude.use)return;const t=await claude.use('tts');if(!t)return;const b=$('listen');b.hidden=false;
+  const lines=[
+   'This is version two of step 3 B, rebuilt from your voice note.',
+   'Sol is an operating system, not an app. It opens on Home, which works like a new phone, with mini apps on it.',
+   'There are ten apps now. The heart of Sol is one app: your day, recording, the read-back card and tasks. It needs a name, so write or say yours first, or tap a suggestion.',
+   'Goals, Learning, Map, Ideas and Decisions each hold their own pages. Saturday and About you are one app, as you suggested, and I suggest Sol Lab goes inside it. People is explained again, so you can choose once more.',
+   'Every app has its own box. Speak or type anything about it.',
+   'Then two home screens to try. A is like an iPhone: one screen, a big widget, icons with numbers, and a dock with record. Inside an app, a line at the bottom takes you home. B is like a Galaxy: two pages, and three buttons at the bottom. I recommend A, because it works like the phone you already use.'];
+  t.onState(({state:st})=>{b.textContent=st==='speaking'?'Stop':'Listen (1 min)'});
+  b.onclick=()=>{if(b.textContent==='Stop'){t.stop();return;}t.speak(lines.map(x=>({text:x})),{language:'en'}).catch(()=>{});};}catch(e){}})();
+(async()=>{try{if(!window.claude||!claude.use)return;const d=await claude.use('dictation');if(!d)return;dict=d;
+  d.onFinal(({text})=>{if(dictTarget)appendTo(dictTarget,text);});
+  d.onState(({state:st})=>{dictOn=st==='listening'||st==='starting';if(!dictOn&&st==='idle'){} wireMics();});
+  wireMics();}catch(e){}})();
+</script>
