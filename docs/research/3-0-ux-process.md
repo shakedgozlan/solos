@@ -1,7 +1,7 @@
 # 3-0 · How we make Sol's UX excellent
 > Summary: strong teams go **things → places → paths → words → structure → test**, and only then style. For Sol that is six small UX steps (3a-3f), then a UX gate, then UI with Atomic Design. Recommended: **option B**, a grey, unstyled but working prototype on Shaked's phone, copied into Figma for comments; Shaked needs Figma only once, for about 10 minutes in UI.
 
-Date: 2026-11-20 · Role: Researcher (Opus 5.5 high lead, 4 Sonnet 5.5 reading workers) · Status: for Shaked's choice (A, B or C) · Reviewer pass: Opus 5.5 high, fixes applied
+Date: 2026-11-20 · Role: Researcher (Opus 5.5 high lead, 4 Sonnet 5.5 reading workers) · Status: decided, option B with a Figma mirror (#34) · Reviewer pass: Opus 5.5 high, fixes applied
 Builds on: [02-definition.md](../02-definition.md), [02c-user-stories.md](../02c-user-stories.md), [decisions.md](../decisions.md). Sources: [3-0-ux-process-sources.md](3-0-ux-process-sources.md).
 
 **How sure we are.** Strong = wide research or long industry practice. Moderate = a few studies or one strong authority. Opinion = practitioners, no studies. Workers could not open nngroup.com, basecamp.com, material.io or figma.com directly and read them through search results, so those points are marked "unverified".
