@@ -203,7 +203,7 @@ renderItems();renderChoices();
   let db=null;try{db=await claude.use('db');}catch(e){}
   if(!db){clearTimeout(t10);$('saveStatus').textContent='Sign in to save your taps.';}
   else{ref=db.doc('picks/object-map');
-    ref.onSnapshot(s=>{clearTimeout(t10);ready=true;if(s.exists){const d=s.data()||{};state.items=d.items||{};state.choices=d.choices||{};
+    ref.onSnapshot(s=>{clearTimeout(t10);if(ready)return;ready=true;if(s.exists){const d=s.data()||{};state.items=d.items||{};state.choices=d.choices||{};
         if(document.activeElement!==$('note')){state.note=d.note||'';$('note').value=state.note;}}
       $('saveStatus').textContent=s.exists?'Your saved taps are loaded.':'Nothing saved yet. Your first tap saves.';renderItems();renderChoices();},
       ()=>{clearTimeout(t10);$('saveStatus').textContent='Couldn\'t load saved taps. You can still tap.'});}
