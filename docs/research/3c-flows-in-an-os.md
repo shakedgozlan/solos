@@ -1,7 +1,7 @@
 # 3c research · How "flows" work in an app built like an operating system
 > Summary: Shaked's instinct is right. An operating system has no single flow. It has **a few verbs that work the same everywhere** (record, find, go Home, undo, send to another app), **shared things** (our 3a object map), **rhythms** (the moment, the day, the week) and **stable places** (spatial memory). Recommended: 3c becomes **"Loops and verbs"**: three rhythm loops drawn on the map of Sol's places, a grid of which verb works in which app, and 10 to 12 "When I..." moments, with step-by-step flows only for the few real sequences.
 
-Date: 2026-11-21 · Role: Researcher (Opus 5.5 high lead, 4 Sonnet 5.5 reading workers) · Status: waiting for Shaked's pick · Reviewer pass: none (not a gate; self-review done)
+Date: 2026-11-21 · Role: Researcher (Opus 5.5 high lead, 4 Sonnet 5.5 reading workers) · Status: decided, option A plus both ideas (#37) · Reviewer pass: none (not a gate; self-review done)
 Builds on: [3-0 UX process](3-0-ux-process.md), [03a object map](../03a-object-map.md), 03b places (#36), [decisions.md](../decisions.md) #34-#36.
 Page: see docs/status.md for the link.
 
@@ -36,4 +36,4 @@ Before 3c (planned as six core flows), find out how flows work in an OS-like pro
 **Recommendation: A.** Evidence: findings 3 and 5 (rhythm loops and job stories fit multi-entry products; Strong to Moderate) and finding 6 (spatial = stable places; Moderate). A already contains C's map as its main picture. One B-style day can be written later, in 3f, as the script for the real-use test.
 
 ## Open
-- Shaked picks A, B or C, or mixes, on the page. Then the 3c step in 3-0 (six flows) is replaced and logged in decisions.md.
+- Decided (#37): option A; the evening close and the three-part Saturday go into 3c.

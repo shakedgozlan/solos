@@ -7,10 +7,10 @@ Gate: Definition approved (decisions.md #31)
 Done since last update:
 - 3b places decided (#36, docs/03b-places.md on PR 14)
 - Research before 3c: docs/research/3c-flows-in-an-os.md. An OS has no single flow: shared actions, shared things, three loops (moment, day, week), places that never move
-- Page for Shaked: https://claude.ai/artifact/NgYVtof2jtiMLDrcyPGc9N (db picks/flows-3c)
+- Shaked picked A plus both ideas (#37). Page: https://claude.ai/artifact/NgYVtof2jtiMLDrcyPGc9N (db picks/flows-3c)
 
 Next step (one task, one owner):
-- Shaked picks what 3c makes: A loops and verbs (recommended), B three days in the life, C spatial map. Then Designer runs 3c and logs the decision
+- 3c Loops and verbs (#37), with evening close and three-part Saturday (Designer, Opus 5.5 high)
 
 Blocked on / waiting for Shaked:
-- 3c option pick (page above); real ElevenLabs sk_ key before Phase 4
+- Real ElevenLabs sk_ key before Phase 4
